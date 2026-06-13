@@ -9,14 +9,14 @@ import Publications from "@/components/Publications";
 import Education from "@/components/Education";
 import Contact from "@/components/Contact";
 
-const SineWave = dynamic(() => import("@/components/SineWave"), { ssr: false });
+const PageBackground = dynamic(() => import("@/components/PageBackground"), { ssr: false });
 const CustomCursor = dynamic(() => import("@/components/CustomCursor"), { ssr: false });
 const ScrollProgress = dynamic(() => import("@/components/ScrollProgress"), { ssr: false });
 
 export default function Home() {
   return (
     <>
-      <SineWave />
+      <PageBackground />
       <CustomCursor />
       <ScrollProgress />
       <main className="relative" style={{ zIndex: 2 }}>
