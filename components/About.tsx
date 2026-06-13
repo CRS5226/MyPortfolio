@@ -34,25 +34,17 @@ export default function About() {
   return (
     <section id="about" className="py-28 px-6 relative">
       <div className="max-w-5xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-16"
-        >
+        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }} transition={{ duration: 0.5 }}
+          className="text-center mb-16 relative">
+          <span className="hidden md:block absolute -top-6 right-0 text-[160px] font-bold opacity-[0.035] blur-sm select-none pointer-events-none text-slate-100 leading-none">01</span>
           <p className="text-primary text-xs font-semibold uppercase tracking-[0.2em] mb-3">About</p>
           <h2 className="text-4xl md:text-5xl font-bold text-slate-100">Who I Am</h2>
         </motion.div>
 
         <div className="grid md:grid-cols-5 gap-12 items-center">
-          <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="md:col-span-3"
-          >
+          <motion.div initial={{ opacity: 0, x: -40 }} whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.1 }} className="md:col-span-3">
             <p className="text-slate-400 leading-relaxed mb-5 text-[15px]">
               I&apos;m a Machine Learning Engineer with an M.Tech from IIIT Gwalior (GPA 9.27) and a
               B.Tech from the University of Mumbai (GPA 9.13). My work sits at the intersection of
@@ -68,14 +60,9 @@ export default function About() {
               On the research side, 5 papers spanning cyber kill-chains, satellite segmentation,
               RF fingerprinting, and DDoS resilience — published in IEEE conferences and arXiv.
             </p>
-
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-              className="flex flex-wrap gap-3 mt-7"
-            >
+            <motion.div initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.4 }}
+              className="flex flex-wrap gap-3 mt-7">
               {["Agentic AI", "Cybersecurity ML", "Quant Finance", "Computer Vision", "NLP"].map((tag) => (
                 <span key={tag} className="px-3 py-1 text-xs font-medium rounded-full border border-cyan-900/60 bg-cyan-950/30 text-cyan-400">
                   {tag}
@@ -84,22 +71,12 @@ export default function About() {
             </motion.div>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="md:col-span-2 grid gap-4"
-          >
+          <motion.div initial={{ opacity: 0, x: 40 }} whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }} className="md:col-span-2 grid gap-4">
             {stats.map(({ icon: Icon, value, suffix, label, decimal }, i) => (
-              <motion.div
-                key={label}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: 0.3 + i * 0.1 }}
-                className="p-5 rounded-xl border border-slate-800 bg-slate-900/50 hover:border-cyan-800/60 transition-colors"
-              >
+              <motion.div key={label} initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }} transition={{ duration: 0.4, delay: 0.3 + i * 0.1 }}
+                className="p-5 rounded-xl border border-slate-800 bg-slate-900/50 hover:border-cyan-800/60 transition-colors">
                 <div className="flex items-center gap-4">
                   <div className="w-10 h-10 rounded-lg bg-cyan-950/60 flex items-center justify-center">
                     <Icon size={18} className="text-primary" />
