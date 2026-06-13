@@ -1,17 +1,12 @@
 "use client";
 
-import dynamic from "next/dynamic";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 import { useEffect, useState, useRef } from "react";
 import { ArrowDown, Mail, BookOpen } from "lucide-react";
 import { personalInfo } from "@/lib/data";
 import ParticleCanvas from "./ParticleCanvas";
 import MarketLine from "./MarketLine";
-
-const NeuralNet3D = dynamic(() => import("./NeuralNet3D"), {
-  ssr: false,
-  loading: () => null,
-});
+import NeuralNet3D from "./NeuralNet3D";
 
 const TITLES = [
   "Machine Learning Engineer",
