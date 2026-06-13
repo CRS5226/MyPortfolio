@@ -3,9 +3,12 @@
 import { motion } from "framer-motion";
 import { ExternalLink, FileText } from "lucide-react";
 import { publications } from "@/lib/data";
+import MarketBackground from "./MarketBackground";
+
 export default function Publications() {
   return (
     <section id="publications" className="py-28 px-6 relative overflow-hidden bg-slate-900/20">
+      <MarketBackground />
       <div className="relative z-10 max-w-5xl mx-auto">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }} transition={{ duration: 0.5 }}
