@@ -3,58 +3,58 @@
 import { motion } from "framer-motion";
 import { skills } from "@/lib/data";
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0 },
-};
-
-const categoryColors: Record<string, string> = {
-  Languages: "bg-cyan-950/60 text-cyan-300 border-cyan-900/50",
-  Frameworks: "bg-violet-950/60 text-violet-300 border-violet-900/50",
-  Tools: "bg-emerald-950/60 text-emerald-300 border-emerald-900/50",
-  Certifications: "bg-amber-950/60 text-amber-300 border-amber-900/50",
+const categoryConfig: Record<string, { tag: string; dot: string }> = {
+  Languages:    { tag: "bg-cyan-950/60 text-cyan-300 border-cyan-900/50",    dot: "bg-cyan-400" },
+  Frameworks:   { tag: "bg-violet-950/60 text-violet-300 border-violet-900/50", dot: "bg-violet-400" },
+  Tools:        { tag: "bg-emerald-950/60 text-emerald-300 border-emerald-900/50", dot: "bg-emerald-400" },
+  Certifications: { tag: "bg-amber-950/60 text-amber-300 border-amber-900/50", dot: "bg-amber-400" },
 };
 
 export default function Skills() {
   return (
-    <section id="skills" className="py-24 px-6">
-      <div className="max-w-4xl mx-auto">
+    <section id="skills" className="py-28 px-6">
+      <div className="max-w-5xl mx-auto">
         <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <p className="text-primary text-sm font-semibold uppercase tracking-widest mb-3">Skills</p>
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-100">Tech Stack</h2>
+          <p className="text-primary text-xs font-semibold uppercase tracking-[0.2em] mb-3">Skills</p>
+          <h2 className="text-4xl md:text-5xl font-bold text-slate-100">Tech Stack</h2>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 gap-6">
+        <div className="grid sm:grid-cols-2 gap-5">
           {skills.map((group, i) => {
-            const tagClass = categoryColors[group.category] ?? "bg-slate-800 text-slate-300 border-slate-700";
+            const cfg = categoryConfig[group.category] ?? { tag: "bg-slate-800 text-slate-300 border-slate-700", dot: "bg-slate-400" };
             return (
               <motion.div
                 key={group.category}
-                variants={fadeUp}
-                initial="hidden"
-                whileInView="visible"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.08 }}
-                className="p-6 rounded-xl border border-slate-800 bg-slate-900/60 hover:border-slate-700 transition-colors"
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                className="p-6 rounded-2xl border border-slate-800 bg-slate-900/50 hover:border-slate-700 transition-all duration-300 group"
               >
-                <h3 className="text-xs font-semibold text-slate-500 uppercase tracking-widest mb-4">
-                  {group.category}
-                </h3>
+                <div className="flex items-center gap-2 mb-4">
+                  <span className={`w-2 h-2 rounded-full ${cfg.dot}`} />
+                  <h3 className="text-xs font-semibold text-slate-500 uppercase tracking-[0.15em]">
+                    {group.category}
+                  </h3>
+                </div>
                 <div className="flex flex-wrap gap-2">
-                  {group.items.map((item) => (
-                    <span
+                  {group.items.map((item, j) => (
+                    <motion.span
                       key={item}
-                      className={`px-3 py-1 rounded-full text-xs font-medium border ${tagClass}`}
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.3, delay: i * 0.1 + j * 0.05 }}
+                      className={`px-3 py-1 rounded-full text-xs font-medium border ${cfg.tag} hover:scale-105 transition-transform cursor-default`}
                     >
                       {item}
-                    </span>
+                    </motion.span>
                   ))}
                 </div>
               </motion.div>

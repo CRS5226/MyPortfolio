@@ -19,12 +19,17 @@ export const navLinks = [
   { label: "Contact", href: "#contact" },
 ];
 
+export interface Achievement {
+  text: string;
+  link?: { label: string; href: string };
+}
+
 export interface Experience {
   company: string;
   role: string;
   location: string;
   duration: string;
-  achievements: string[];
+  achievements: Achievement[];
 }
 
 export const experiences: Experience[] = [
@@ -34,12 +39,12 @@ export const experiences: Experience[] = [
     location: "Delhi",
     duration: "Aug 2025 – Present",
     achievements: [
-      "Architected an Autonomous Agentic Trading System leveraging Claude 3.5 to dynamically synthesize intra-day strategies; implemented a self-correcting feedback loop that optimizes algorithmic parameters based on real-time pre-market volatility and historical performance.",
-      "Engineered a High-Concurrency Data Pipeline for 1,500+ stocks via Zerodha API; utilized Redis sharding, multiprocessing, and round-robin strategies to minimize RAM overhead and ensure low-latency data synchronization.",
-      "Developed an NLP-driven Sentiment Analysis Engine using Google News RSS to monitor global financial headlines; built an automated pipeline to quantify market impact, providing actionable predictive signals for algorithmic decision-making.",
-      "Integrated a Claude-Zerodha MCP (Model Context Protocol) Connector to facilitate real-time, natural language trade verification; enabled an interactive, agentic experience for retail users to query market status via custom trading workbooks.",
-      "Automated Real-Time Reporting & Visualization by linking backend predictive models to Microsoft Graph API and Telegram Bot API; enabled seamless live-logging of trade data into cloud-synchronized Excel environments for instant analysis.",
-      "Optimized Production Infrastructure on a VPS using Nginx and PM2 for high-uptime deployment of Next.js platforms; managed full-stack DNS configuration (A/MX records) to ensure 24/7 service availability and secure mail integration.",
+      { text: "Architected an Autonomous Agentic Trading System powered by Claude 3.5 — implemented a self-correcting feedback loop that continuously re-optimises execution parameters against real-time pre-market volatility and historical P&L signals." },
+      { text: "Engineered a high-concurrency data pipeline ingesting 1,500+ equity instruments via the Zerodha API; leveraged Redis sharding, multiprocessing, and round-robin dispatch to eliminate memory bottlenecks and achieve sub-100ms data synchronisation." },
+      { text: "Built an NLP-driven Sentiment Analysis Engine over Google News RSS — automated headline scoring pipeline converts qualitative market signals into quantitative alpha inputs for the trading engine." },
+      { text: "Integrated a Claude–Zerodha MCP Connector enabling natural-language trade verification; retail users can query live market state and trigger workbook analytics through a conversational agentic interface." },
+      { text: "Automated live trade reporting by piping model outputs to Microsoft Graph API and Telegram Bot API — cloud-synced Excel workbooks provide real-time P&L visibility with zero manual intervention." },
+      { text: "Hardened production infrastructure on a VPS with Nginx reverse-proxy and PM2 process management; handled full DNS stack (A/MX records) for 24/7 uptime across Next.js services and transactional mail." },
     ],
   },
   {
@@ -48,12 +53,11 @@ export const experiences: Experience[] = [
     location: "Bengaluru",
     duration: "Mar 2025 – Aug 2025",
     achievements: [
-      "Architected an Autonomous Agentic Trading System leveraging Claude 3.5 to dynamically synthesize intra-day strategies; implemented a self-correcting feedback loop that optimizes algorithmic parameters based on real-time pre-market volatility and historical performance.",
-      "Engineered a High-Concurrency Data Pipeline for 1,500+ stocks via Zerodha API; utilized Redis sharding, multiprocessing, and round-robin strategies to minimize RAM overhead and ensure low-latency data synchronization.",
-      "Developed an NLP-driven Sentiment Analysis Engine using Google News RSS to monitor global financial headlines; built an automated pipeline to quantify market impact, providing actionable predictive signals for algorithmic decision-making.",
-      "Integrated a Claude-Zerodha MCP (Model Context Protocol) Connector to facilitate real-time, natural language trade verification; enabled an interactive, agentic experience for retail users to query market status via custom trading workbooks.",
-      "Automated Real-Time Reporting & Visualization by linking backend predictive models to Microsoft Graph API and Telegram Bot API; enabled seamless live-logging of trade data into cloud-synchronized Excel environments for instant analysis.",
-      "Optimized Production Infrastructure on a VPS using Nginx and PM2 for high-uptime deployment of Next.js platforms; managed full-stack DNS configuration (A/MX records) to ensure 24/7 service availability and secure mail integration.",
+      { text: "Synthesised and semantically mapped CVE, CWE, CAPEC, ExploitDB, and TTP data into a unified threat-intelligence dataset, enabling structured kill-chain analysis at enterprise scale." },
+      { text: "Designed ML pipelines to model multi-stage kill-chain attack scenarios — trained classifiers to identify and predict potential attack vectors across enterprise network topologies." },
+      { text: "Co-authored KillChainGraph — built a custom ATT&CK-MITRE dataset with ATTCKBERT and trained graph ML models to surface novel attack paths from unstructured threat intel.", link: { label: "GitHub", href: "https://github.com/Frondeur-Labs/KillChainGraph" } },
+      { text: "Extended KillChainGraph with a Policy-Value Network inside an MDP-MCTS framework, significantly improving attack-path inference accuracy and decision-making quality under uncertainty.", link: { label: "GitHub", href: "https://github.com/Frondeur-Labs/Kill-Chain-Inference" } },
+      { text: "Architected a unified red-teaming interface via FastAPI — consolidated disparate ML threat models into a single backend enabling real-time adversarial workflow automation for security analysts." },
     ],
   },
 ];
@@ -98,12 +102,12 @@ export const projects: Project[] = [
   {
     name: "Satellite Semantic Segmentation",
     description:
-      "A deep learning pipeline for semantic segmentation of high-resolution satellite imagery using the LandCover.ai dataset.",
+      "End-to-end deep learning pipeline for semantic segmentation of high-resolution satellite imagery — from raw RGB bands to production-ready land-cover maps.",
     highlights: [
-      "Developed a segmentation model for RGB spectral band images (9000 × 9500 px) using the LandCover.ai dataset.",
-      "Applied data augmentation strategies to improve generalization, reducing overfitting by 15%.",
-      "Boosted image resolution by implementing Generative Adversarial Networks (GANs), increasing clarity by 10%.",
-      "Implemented U-Net architecture with a Vision Transformer, achieving an IoU score of 83.11%.",
+      "Built a segmentation model on the LandCover.ai dataset processing RGB imagery at 9000 × 9500 px resolution.",
+      "Applied targeted data augmentation strategies, reducing overfitting by 15% without additional data collection.",
+      "Deployed GAN-based super-resolution post-processing, boosting output image clarity by 10%.",
+      "Implemented U-Net with a Vision Transformer encoder — achieved 83.11% IoU on the held-out test set.",
     ],
     techStack: ["Python", "PyTorch", "U-Net", "GAN", "Vision Transformer", "LandCover.ai"],
     links: [],
@@ -162,7 +166,6 @@ export interface Education {
   location: string;
   duration: string;
   gpa: string;
-  achievements: string[];
 }
 
 export const education: Education[] = [
@@ -172,7 +175,6 @@ export const education: Education[] = [
     location: "Gwalior, Madhya Pradesh",
     duration: "Aug 2023 – May 2025",
     gpa: "9.27 / 10",
-    achievements: ["Kaggle Expert", "MHRD Fellowship", "Teaching Assistantship"],
   },
   {
     degree: "B.Tech in Information Technology",
@@ -180,6 +182,5 @@ export const education: Education[] = [
     location: "Mumbai, Maharashtra",
     duration: "Aug 2019 – May 2023",
     gpa: "9.13 / 10",
-    achievements: ["Smart India Hackathon 2022", "Mastek DB 2021"],
   },
 ];
