@@ -3,10 +3,10 @@
 import { useEffect, useRef } from "react";
 
 /* ─── Scroll zones (0..1) ─── */
-const Z1_END = 0.28;   // neural net fades out after this
-const Z2_START = 0.22; // market chart fades in
-const Z2_END = 0.58;   // market chart fades out
-const Z3_START = 0.52; // matrix rain fades in
+const Z1_END = 0.22;   // neural net fades out after this
+const Z2_START = 0.15; // market chart fades in (earlier, more visible)
+const Z2_END = 0.62;   // market chart fades out
+const Z3_START = 0.55; // matrix rain fades in
 
 function easeInOut(t: number) { return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t; }
 
@@ -85,7 +85,6 @@ export default function PageBackground() {
 
     let animId: number;
     let scrollProg = 0;
-    let t = 0;
     let marketOffset = 0;
 
     let particles: Particle[] = [];
@@ -149,10 +148,10 @@ export default function PageBackground() {
     function drawMarket(alpha: number) {
       if (alpha <= 0.01) return;
       const w = cv.width, h = cv.height;
-      const barW = 10, gap = 5;
+      const barW = 14, gap = 4;
       const step = barW + gap;
 
-      marketOffset += 0.18;
+      marketOffset += 0.22;
       if (marketOffset > step) marketOffset -= step;
 
       const prices = CANDLES.map(bar => bar.h).concat(CANDLES.map(bar => bar.l));
@@ -160,23 +159,25 @@ export default function PageBackground() {
       const maxP = Math.max(...prices);
       const range = maxP - minP;
 
-      const chartH = h * 0.35;
-      const chartY = h * 0.62;
+      const chartH = h * 0.42;
+      const chartY = h * 0.72;
 
       const toY = (p: number) => chartY - ((p - minP) / range) * chartH;
 
-      /* sine wave baseline behind candles */
-      c.beginPath();
-      for (let x = 0; x <= w; x += 3) {
-        const wy = chartY - chartH * 0.5 + Math.sin(x * 0.008 + t * 0.4) * chartH * 0.18;
-        if (x === 0) c.moveTo(x, wy); else c.lineTo(x, wy);
+      /* horizontal grid lines */
+      for (let k = 0; k <= 5; k++) {
+        const y = chartY - (chartH * k) / 5;
+        c.beginPath();
+        c.moveTo(0, y);
+        c.lineTo(w, y);
+        c.strokeStyle = `rgba(6,182,212,${alpha * 0.06})`;
+        c.lineWidth = 0.5;
+        c.stroke();
       }
-      c.strokeStyle = `rgba(6,182,212,${alpha * 0.04})`;
-      c.lineWidth = 1;
-      c.stroke();
 
       const visibleBars = Math.ceil(w / step) + 2;
       const startBar = Math.floor(marketOffset / step);
+      const closePts: { x: number; y: number }[] = [];
 
       for (let i = 0; i < visibleBars; i++) {
         const bi = (startBar + i) % CANDLES.length;
@@ -189,34 +190,52 @@ export default function PageBackground() {
         const lY = toY(bar.l);
         const bullish = bar.c >= bar.o;
 
-        const barAlpha = alpha * (bullish ? 0.13 : 0.09);
-        const wickAlpha = alpha * 0.07;
+        closePts.push({ x: x + barW / 2, y: cY });
 
         /* wick */
         c.beginPath();
         c.moveTo(x + barW / 2, hY);
         c.lineTo(x + barW / 2, lY);
-        c.strokeStyle = bullish ? `rgba(6,182,212,${wickAlpha})` : `rgba(239,68,68,${wickAlpha})`;
-        c.lineWidth = 1;
+        c.strokeStyle = bullish ? `rgba(6,182,212,${alpha * 0.5})` : `rgba(239,68,68,${alpha * 0.45})`;
+        c.lineWidth = 1.2;
         c.stroke();
 
         /* body */
         const bodyTop = Math.min(oY, cY);
-        const bodyH = Math.max(1.5, Math.abs(oY - cY));
-        c.fillStyle = bullish ? `rgba(6,182,212,${barAlpha})` : `rgba(239,68,68,${barAlpha})`;
+        const bodyH = Math.max(2, Math.abs(oY - cY));
+        c.fillStyle = bullish ? `rgba(6,182,212,${alpha * 0.45})` : `rgba(239,68,68,${alpha * 0.38})`;
         c.fillRect(x, bodyTop, barW, bodyH);
+
+        /* body border */
+        c.strokeStyle = bullish ? `rgba(6,182,212,${alpha * 0.7})` : `rgba(239,68,68,${alpha * 0.6})`;
+        c.lineWidth = 0.8;
+        c.strokeRect(x, bodyTop, barW, bodyH);
+
+        /* volume bar at bottom */
+        const volH = Math.max(2, bodyH * 0.4);
+        c.fillStyle = bullish ? `rgba(6,182,212,${alpha * 0.15})` : `rgba(239,68,68,${alpha * 0.12})`;
+        c.fillRect(x, chartY + 6, barW, volH);
       }
 
-      /* horizontal grid lines */
-      for (let k = 0; k <= 4; k++) {
-        const y = chartY - (chartH * k) / 4;
+      /* glowing price close line */
+      if (closePts.length > 1) {
         c.beginPath();
-        c.moveTo(0, y);
-        c.lineTo(w, y);
-        c.strokeStyle = `rgba(6,182,212,${alpha * 0.025})`;
-        c.lineWidth = 0.5;
+        closePts.forEach((pt, i) => { if (i === 0) c.moveTo(pt.x, pt.y); else c.lineTo(pt.x, pt.y); });
+        c.strokeStyle = `rgba(6,182,212,${alpha * 0.35})`;
+        c.lineWidth = 1.5;
+        c.shadowColor = `rgba(6,182,212,0.8)`;
+        c.shadowBlur = 6;
         c.stroke();
+        c.shadowBlur = 0;
       }
+
+      /* "LIVE" label top-right */
+      c.font = `bold 10px monospace`;
+      c.fillStyle = `rgba(6,182,212,${alpha * 0.5})`;
+      c.fillText("◉ LIVE", w - 52, chartY - chartH - 10);
+      c.font = `9px monospace`;
+      c.fillStyle = `rgba(100,200,255,${alpha * 0.3})`;
+      c.fillText("ML/ALGO TRADING SYS", 12, chartY - chartH - 10);
     }
 
     /* ─── Draw matrix rain ─── */
@@ -251,7 +270,6 @@ export default function PageBackground() {
       drawNeural(a.neural);
       drawMarket(a.market);
       drawMatrix(a.matrix);
-      t += 0.012;
       animId = requestAnimationFrame(draw);
     };
 

@@ -12,11 +12,13 @@ import Contact from "@/components/Contact";
 const PageBackground = dynamic(() => import("@/components/PageBackground"), { ssr: false });
 const CustomCursor = dynamic(() => import("@/components/CustomCursor"), { ssr: false });
 const ScrollProgress = dynamic(() => import("@/components/ScrollProgress"), { ssr: false });
+const CyberTerminal = dynamic(() => import("@/components/CyberTerminal"), { ssr: false });
 
 export default function Home() {
   return (
     <>
       <PageBackground />
+      <CyberTerminal />
       <CustomCursor />
       <ScrollProgress />
       <main className="relative" style={{ zIndex: 2 }}>
