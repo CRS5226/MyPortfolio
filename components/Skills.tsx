@@ -35,9 +35,18 @@ const iconGrid = [
   { Icon: SiNginx,      name: "Nginx",        color: "#009639" },
 ];
 
+const container = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.12, delayChildren: 0.05 } },
+};
+const item = {
+  hidden: { opacity: 0, y: 48, scale: 0.96, filter: "blur(6px)" },
+  visible: { opacity: 1, y: 0, scale: 1, filter: "blur(0px)", transition: { duration: 0.65, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] } },
+};
+
 export default function Skills() {
   return (
-    <section id="skills" className="py-28 px-6 overflow-hidden">
+    <section id="skills" className="py-28 px-6 overflow-hidden" style={{ background: "radial-gradient(ellipse at 50% 40%, rgba(6,182,212,0.06) 0%, transparent 65%)" }}>
       <SectionReveal><div className="max-w-5xl mx-auto">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }} transition={{ duration: 0.5 }}
@@ -59,14 +68,17 @@ export default function Skills() {
         </div>
 
         {/* Icon grid */}
-        <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 gap-3 mb-14">
-          {iconGrid.map(({ Icon, name, color }, i) => (
+        <motion.div
+          className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 gap-3 mb-14"
+          variants={container}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-60px" }}
+        >
+          {iconGrid.map(({ Icon, name, color }) => (
             <motion.div
               key={name}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: i * 0.04 }}
+              variants={item}
               whileHover={{ scale: 1.08, y: -2 }}
               className="flex flex-col items-center gap-2 p-4 rounded-xl border border-slate-800/60 bg-slate-900/40 hover:border-cyan-800/50 hover:bg-slate-900/70 transition-all duration-200 cursor-default"
             >
@@ -74,7 +86,7 @@ export default function Skills() {
               <span className="text-xs text-slate-400 text-center leading-tight">{name}</span>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         {/* Certifications section */}
         <motion.div
@@ -85,15 +97,20 @@ export default function Skills() {
             <span className="w-2 h-2 rounded-full bg-amber-400" />
             <h3 className="text-xs font-semibold text-slate-500 uppercase tracking-[0.15em]">Certifications</h3>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {certificates.map((cert, i) => (
+          <motion.div
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
+            variants={container}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-60px" }}
+          >
+            {certificates.map((cert) => (
               <motion.a
                 key={cert.file}
                 href={cert.file}
                 target="_blank"
                 rel="noopener noreferrer"
-                initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.08 }}
+                variants={item}
                 className="group flex items-start gap-4 p-5 rounded-2xl border border-slate-800 bg-slate-900/50 hover:border-cyan-800/50 hover:bg-slate-900/80 transition-all duration-300 cursor-pointer"
               >
                 <div className="w-10 h-10 rounded-lg bg-amber-950/50 flex items-center justify-center flex-shrink-0 group-hover:bg-amber-950/80 transition-colors">
@@ -108,7 +125,7 @@ export default function Skills() {
                 </div>
               </motion.a>
             ))}
-          </div>
+          </motion.div>
         </motion.div>
       </div></SectionReveal>
     </section>

@@ -6,9 +6,18 @@ import { education } from "@/lib/data";
 import Image from "next/image";
 import SectionReveal from "./SectionReveal";
 
+const container = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.12, delayChildren: 0.05 } },
+};
+const item = {
+  hidden: { opacity: 0, y: 48, scale: 0.96, filter: "blur(6px)" },
+  visible: { opacity: 1, y: 0, scale: 1, filter: "blur(0px)", transition: { duration: 0.65, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] } },
+};
+
 export default function Education() {
   return (
-    <section id="education" className="py-28 px-6 bg-slate-900/20 grid-bg relative">
+    <section id="education" className="py-28 px-6 bg-slate-900/20 grid-bg relative" style={{ background: "radial-gradient(ellipse at 70% 30%, rgba(245,158,11,0.05) 0%, transparent 65%)" }}>
       <SectionReveal><div className="max-w-5xl mx-auto">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }} transition={{ duration: 0.5 }}
@@ -18,11 +27,16 @@ export default function Education() {
           <h2 className="text-4xl md:text-5xl font-bold text-slate-100">Academic Background</h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-6">
-          {education.map((edu, i) => (
+        <motion.div
+          className="grid md:grid-cols-2 gap-6"
+          variants={container}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-60px" }}
+        >
+          {education.map((edu) => (
             <motion.div key={edu.degree}
-              initial={{ opacity: 0, scale: 0.95, y: 20 }} whileInView={{ opacity: 1, scale: 1, y: 0 }}
-              viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.15 }}
+              variants={item}
               className="relative group p-7 rounded-2xl border border-slate-800 bg-slate-900/60 hover:border-cyan-800/50 transition-all duration-300 overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-br from-cyan-950/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl" />
               <div className="relative flex items-start gap-4 mb-5">
@@ -49,7 +63,7 @@ export default function Education() {
               </div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div></SectionReveal>
     </section>
   );

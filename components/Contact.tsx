@@ -23,7 +23,7 @@ const socialLinks = [
 
 export default function Contact() {
   return (
-    <section id="contact" className="py-28 px-6 relative">
+    <section id="contact" className="py-28 px-6 relative" style={{ background: "radial-gradient(ellipse at 50% 70%, rgba(244,63,94,0.05) 0%, transparent 65%)" }}>
       <SectionReveal><div className="max-w-5xl mx-auto">
         <motion.div variants={fadeUp} initial="hidden" whileInView="visible"
           viewport={{ once: true }} transition={{ duration: 0.5 }}

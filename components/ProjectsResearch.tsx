@@ -16,9 +16,18 @@ const standalonePaperIndexes = [2, 4];
 // Satellite project's venue attribution (no public link yet)
 const satelliteVenue = "IEEE International Conference on Intelligent Signal Processing, 2024";
 
+const container = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.12, delayChildren: 0.05 } },
+};
+const item = {
+  hidden: { opacity: 0, y: 48, scale: 0.96, filter: "blur(6px)" },
+  visible: { opacity: 1, y: 0, scale: 1, filter: "blur(0px)", transition: { duration: 0.65, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] } },
+};
+
 export default function ProjectsResearch() {
   return (
-    <section id="projects" className="py-28 px-6 relative overflow-hidden">
+    <section id="projects" className="py-28 px-6 relative overflow-hidden" style={{ background: "radial-gradient(ellipse at 30% 60%, rgba(16,185,129,0.05) 0%, transparent 65%)" }}>
       <SectionReveal>
         <div className="relative z-10 max-w-5xl mx-auto">
 
@@ -33,16 +42,21 @@ export default function ProjectsResearch() {
           </motion.div>
 
           {/* Project cards */}
-          <div className="grid gap-8 mb-16">
-            {projects.map((project, i) => {
+          <motion.div
+            className="grid gap-8 mb-16"
+            variants={container}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-60px" }}
+          >
+            {projects.map((project) => {
               const relatedIdxs = projectPapers[project.name] ?? [];
               const relatedPubs = relatedIdxs.map((idx) => publications[idx]);
               const isSatellite = project.name.includes("Satellite");
 
               return (
                 <motion.div key={project.name}
-                  initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }} transition={{ duration: 0.6, delay: i * 0.1 }}
+                  variants={item}
                   className="group rounded-2xl border border-slate-800 bg-slate-900/70 backdrop-blur-sm hover:border-cyan-800/50 transition-all duration-300 overflow-hidden">
 
                   {/* Project image */}
@@ -122,7 +136,7 @@ export default function ProjectsResearch() {
                 </motion.div>
               );
             })}
-          </div>
+          </motion.div>
 
           {/* Standalone research papers */}
           <motion.div
@@ -149,13 +163,18 @@ export default function ProjectsResearch() {
               </div>
             </div>
 
-            <div className="grid gap-4">
-              {standalonePaperIndexes.map((idx, i) => {
+            <motion.div
+              className="grid gap-4"
+              variants={container}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-60px" }}
+            >
+              {standalonePaperIndexes.map((idx) => {
                 const pub = publications[idx];
                 return (
                   <motion.div key={pub.title}
-                    initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.08 }}
+                    variants={item}
                     className="group flex gap-4 p-5 rounded-xl border border-slate-800 bg-slate-900/60 hover:border-violet-800/40 transition-all duration-300">
                     <div className="w-8 h-8 rounded-lg bg-violet-950/50 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:bg-violet-950/80 transition-colors">
                       <FileText size={14} className="text-violet-400" />
@@ -179,7 +198,7 @@ export default function ProjectsResearch() {
                   </motion.div>
                 );
               })}
-            </div>
+            </motion.div>
           </motion.div>
 
         </div>

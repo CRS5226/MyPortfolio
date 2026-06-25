@@ -34,7 +34,7 @@ const stats = [
 
 export default function About() {
   return (
-    <section id="about" className="py-28 px-6 relative overflow-hidden">
+    <section id="about" className="py-28 px-6 relative overflow-hidden" style={{ background: "radial-gradient(ellipse at 30% 60%, rgba(99,102,241,0.07) 0%, transparent 65%)" }}>
       <SectionReveal><div className="max-w-5xl mx-auto">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }} transition={{ duration: 0.5 }}
