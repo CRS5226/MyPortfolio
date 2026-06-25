@@ -1,7 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { skills } from "@/lib/data";
+import { Award } from "lucide-react";
+import { skills, certificates } from "@/lib/data";
 
 const categoryConfig: Record<string, { tag: string; dot: string }> = {
   Languages:      { tag: "bg-cyan-950/60 text-cyan-300 border-cyan-900/50",     dot: "bg-cyan-400" },
@@ -66,6 +67,41 @@ export default function Skills() {
             );
           })}
         </div>
+
+        {/* Certifications section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.2 }}
+          className="mt-16">
+          <div className="flex items-center gap-3 mb-8">
+            <span className="w-2 h-2 rounded-full bg-amber-400" />
+            <h3 className="text-xs font-semibold text-slate-500 uppercase tracking-[0.15em]">Certifications</h3>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {certificates.map((cert, i) => (
+              <motion.a
+                key={cert.file}
+                href={cert.file}
+                target="_blank"
+                rel="noopener noreferrer"
+                initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.08 }}
+                className="group flex items-start gap-4 p-5 rounded-2xl border border-slate-800 bg-slate-900/50 hover:border-cyan-800/50 hover:bg-slate-900/80 transition-all duration-300 cursor-pointer"
+              >
+                <div className="w-10 h-10 rounded-lg bg-amber-950/50 flex items-center justify-center flex-shrink-0 group-hover:bg-amber-950/80 transition-colors">
+                  <Award size={18} className="text-amber-400" />
+                </div>
+                <div className="min-w-0">
+                  <p className="text-sm font-semibold text-slate-200 leading-snug mb-0.5">{cert.name}</p>
+                  <p className="text-xs text-slate-500 mb-2">{cert.issuer}</p>
+                  <span className="text-xs text-primary font-medium group-hover:text-cyan-300 transition-colors">
+                    View Certificate →
+                  </span>
+                </div>
+              </motion.a>
+            ))}
+          </div>
+        </motion.div>
       </div>
     </section>
   );

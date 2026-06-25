@@ -30,6 +30,7 @@ export interface Experience {
   location: string;
   duration: string;
   achievements: Achievement[];
+  logo?: string;
 }
 
 export const experiences: Experience[] = [
@@ -38,6 +39,7 @@ export const experiences: Experience[] = [
     role: "Machine Learning Engineer",
     location: "Delhi",
     duration: "Aug 2025 – Present",
+    logo: "/images/HtoH.png",
     achievements: [
       { text: "Architected an Autonomous Agentic Trading System powered by Claude 3.5 — implemented a self-correcting feedback loop that continuously re-optimises execution parameters against real-time pre-market volatility and historical P&L signals." },
       { text: "Engineered a high-concurrency data pipeline ingesting 1,500+ equity instruments via the Zerodha API; leveraged Redis sharding, multiprocessing, and round-robin dispatch to eliminate memory bottlenecks and achieve sub-100ms data synchronisation." },
@@ -52,6 +54,7 @@ export const experiences: Experience[] = [
     role: "Machine Learning Engineer – Intern",
     location: "Bengaluru",
     duration: "Mar 2025 – Aug 2025",
+    logo: "/images/frondeurlabs.png",
     achievements: [
       { text: "Synthesised and semantically mapped CVE, CWE, CAPEC, ExploitDB, and TTP data into a unified threat-intelligence dataset, enabling structured kill-chain analysis at enterprise scale." },
       { text: "Designed ML pipelines to model multi-stage kill-chain attack scenarios — trained classifiers to identify and predict potential attack vectors across enterprise network topologies." },
@@ -90,12 +93,27 @@ export const skills: SkillGroup[] = [
   },
 ];
 
+export interface Certificate {
+  name: string;
+  issuer: string;
+  file: string;
+}
+
+export const certificates: Certificate[] = [
+  { name: "AI Classroom", issuer: "Microsoft", file: "/certificates/microsoft.pdf" },
+  { name: "Geoprocessing with Python", issuer: "ISRO", file: "/certificates/isro.pdf" },
+  { name: "DSA Workshop", issuer: "GeeksForGeeks", file: "/certificates/gfg.pdf" },
+  { name: "Python Programming", issuer: "Udemy", file: "/certificates/python.pdf" },
+  { name: "C++ Programming", issuer: "Udemy", file: "/certificates/cpp.pdf" },
+];
+
 export interface Project {
   name: string;
   description: string;
   highlights: string[];
   techStack: string[];
   links: { label: string; href: string }[];
+  image?: string;
 }
 
 export const projects: Project[] = [
@@ -111,6 +129,24 @@ export const projects: Project[] = [
     ],
     techStack: ["Python", "PyTorch", "U-Net", "GAN", "Vision Transformer", "LandCover.ai"],
     links: [],
+    image: "/images/semanticsegmentation_rel.png",
+  },
+  {
+    name: "KillChainGraph",
+    description:
+      "ML framework for predicting and mapping ATT&CK techniques from unstructured threat intelligence. Built for enterprise-scale kill-chain analysis with graph ML models.",
+    highlights: [
+      "Built custom ATT&CK-MITRE dataset using ATTCKBERT for semantic threat mapping.",
+      "Trained graph ML models to surface novel attack paths from unstructured threat intel.",
+      "Extended with Policy-Value Network in MDP-MCTS framework for attack-path inference.",
+      "Consolidated into FastAPI red-teaming interface for real-time adversarial automation.",
+    ],
+    techStack: ["Python", "PyTorch", "Graph ML", "BERT", "FastAPI", "ATT&CK MITRE"],
+    links: [
+      { label: "GitHub", href: "https://github.com/Frondeur-Labs/KillChainGraph" },
+      { label: "Paper", href: "https://arxiv.org/abs/2508.18230" },
+    ],
+    image: "/images/killchaingraph.png",
   },
 ];
 
@@ -166,6 +202,7 @@ export interface Education {
   location: string;
   duration: string;
   gpa: string;
+  logo: string;
 }
 
 export const education: Education[] = [
@@ -175,6 +212,7 @@ export const education: Education[] = [
     location: "Gwalior, Madhya Pradesh",
     duration: "Aug 2023 – May 2025",
     gpa: "9.27 / 10",
+    logo: "/images/iiit_logo.png",
   },
   {
     degree: "B.Tech in Information Technology",
@@ -182,5 +220,6 @@ export const education: Education[] = [
     location: "Mumbai, Maharashtra",
     duration: "Aug 2019 – May 2023",
     gpa: "9.13 / 10",
+    logo: "/images/mu_logo.png",
   },
 ];

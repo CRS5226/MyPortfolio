@@ -3,6 +3,8 @@
 import { motion } from "framer-motion";
 import { MapPin, Calendar, ExternalLink } from "lucide-react";
 import { experiences } from "@/lib/data";
+import Image from "next/image";
+
 export default function Experience() {
   return (
     <section id="experience" className="py-28 px-6 bg-slate-900/20 relative overflow-hidden">
@@ -29,9 +31,22 @@ export default function Experience() {
                   className="absolute left-[14px] top-5 w-3 h-3 rounded-full bg-primary border-2 border-slate-950 shadow-[0_0_8px_rgba(6,182,212,0.6)]" />
                 <div className="group p-6 rounded-2xl border border-slate-800/80 bg-slate-900/60 hover:border-cyan-800/50 hover:bg-slate-900/80 transition-all duration-300">
                   <div className="flex flex-wrap items-start justify-between gap-3 mb-5">
-                    <div>
-                      <h3 className="text-lg font-bold text-slate-100">{exp.role}</h3>
-                      <span className="inline-block mt-1 px-2.5 py-0.5 rounded-md text-xs font-semibold bg-cyan-950/60 text-primary border border-cyan-900/40">{exp.company}</span>
+                    <div className="flex items-center gap-4">
+                      {exp.logo && (
+                        <div className="bg-slate-800/50 rounded-lg px-3 py-2 flex items-center justify-center flex-shrink-0">
+                          <Image
+                            src={exp.logo}
+                            alt={`${exp.company} logo`}
+                            width={80}
+                            height={40}
+                            style={{ objectFit: "contain", height: "40px", width: "auto" }}
+                          />
+                        </div>
+                      )}
+                      <div>
+                        <h3 className="text-lg font-bold text-slate-100">{exp.role}</h3>
+                        <span className="inline-block mt-1 px-2.5 py-0.5 rounded-md text-xs font-semibold bg-cyan-950/60 text-primary border border-cyan-900/40">{exp.company}</span>
+                      </div>
                     </div>
                     <div className="flex flex-col items-end gap-1.5">
                       <span className="inline-flex items-center gap-1.5 text-xs text-slate-500"><Calendar size={11} className="text-primary/60" />{exp.duration}</span>

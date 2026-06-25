@@ -3,6 +3,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
 import { FileText, Brain, Cpu } from "lucide-react";
+import Image from "next/image";
 
 function CountUp({ target, suffix = "" }: { target: number; suffix?: string }) {
   const ref = useRef<HTMLSpanElement>(null);
@@ -45,6 +46,20 @@ export default function About() {
         <div className="grid md:grid-cols-5 gap-12 items-center">
           <motion.div initial={{ opacity: 0, x: -40 }} whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.1 }} className="md:col-span-3">
+
+            {/* Mobile profile photo */}
+            <div className="flex justify-center mb-6 md:hidden">
+              <div className="w-20 h-20 rounded-full overflow-hidden border-2 border-cyan-500/40 shadow-[0_0_30px_rgba(6,182,212,0.2)]">
+                <Image
+                  src="/images/myimage.png"
+                  alt="Chitraksh Singh"
+                  width={80}
+                  height={80}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </div>
+
             <p className="text-slate-400 leading-relaxed mb-5 text-[15px]">
               I&apos;m a Machine Learning Engineer with an M.Tech from IIIT Gwalior (GPA 9.27) and a
               B.Tech from the University of Mumbai (GPA 9.13). My work sits at the intersection of

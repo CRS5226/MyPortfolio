@@ -1,8 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { GraduationCap, MapPin, Calendar } from "lucide-react";
+import { MapPin, Calendar } from "lucide-react";
 import { education } from "@/lib/data";
+import Image from "next/image";
 
 export default function Education() {
   return (
@@ -24,8 +25,14 @@ export default function Education() {
               className="relative group p-7 rounded-2xl border border-slate-800 bg-slate-900/60 hover:border-cyan-800/50 transition-all duration-300 overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-br from-cyan-950/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl" />
               <div className="relative flex items-start gap-4 mb-5">
-                <div className="w-11 h-11 rounded-xl bg-cyan-950/60 flex items-center justify-center flex-shrink-0 group-hover:bg-cyan-950 transition-colors">
-                  <GraduationCap size={20} className="text-primary" />
+                <div className="w-14 h-14 rounded-xl bg-white/5 flex items-center justify-center p-2 flex-shrink-0">
+                  <Image
+                    src={edu.logo}
+                    alt={`${edu.institution} logo`}
+                    width={48}
+                    height={48}
+                    style={{ objectFit: "contain" }}
+                  />
                 </div>
                 <div>
                   <h3 className="text-base font-bold text-slate-100 leading-snug">{edu.degree}</h3>
