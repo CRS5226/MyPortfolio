@@ -9,13 +9,11 @@ import Publications from "@/components/Publications";
 import Education from "@/components/Education";
 import Contact from "@/components/Contact";
 
-const CustomCursor = dynamic(() => import("@/components/CustomCursor"), { ssr: false });
 const ScrollProgress = dynamic(() => import("@/components/ScrollProgress"), { ssr: false });
 
 export default function Home() {
   return (
     <>
-      <CustomCursor />
       <ScrollProgress />
       <main className="relative" style={{ zIndex: 2 }}>
         <Navbar />
