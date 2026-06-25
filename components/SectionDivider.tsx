@@ -4,35 +4,26 @@ import { motion } from "framer-motion";
 
 export default function SectionDivider() {
   return (
-    <div className="relative flex items-center justify-center py-2 px-6 overflow-hidden">
-      {/* left line */}
-      <motion.div
-        initial={{ scaleX: 0 }}
-        whileInView={{ scaleX: 1 }}
-        viewport={{ once: true, margin: "-40px" }}
-        transition={{ duration: 0.9, ease: [0.25, 0.46, 0.45, 0.94] }}
-        className="h-px flex-1 origin-left"
-        style={{ background: "linear-gradient(to right, transparent, rgba(6,182,212,0.25))" }}
-      />
+    <div className="py-6 px-6">
+      <div className="relative h-px w-full" style={{ background: "rgba(6,182,212,0.12)" }}>
+        {/* Shimmer scan line */}
+        <motion.div
+          className="absolute inset-0 h-px w-full"
+          style={{
+            background: "linear-gradient(90deg, transparent 0%, rgba(6,182,212,0.5) 50%, transparent 100%)",
+            backgroundSize: "200% 100%",
+          }}
+          animate={{ backgroundPosition: ["200% 0", "-200% 0"] }}
+          transition={{ duration: 2.5, repeat: Infinity, ease: "linear" }}
+        />
 
-      {/* centre diamond */}
-      <motion.div
-        initial={{ opacity: 0, scale: 0, rotate: 45 }}
-        whileInView={{ opacity: 1, scale: 1, rotate: 45 }}
-        viewport={{ once: true, margin: "-40px" }}
-        transition={{ duration: 0.4, delay: 0.5 }}
-        className="w-1.5 h-1.5 bg-cyan-500/50 mx-4 flex-shrink-0"
-      />
-
-      {/* right line */}
-      <motion.div
-        initial={{ scaleX: 0 }}
-        whileInView={{ scaleX: 1 }}
-        viewport={{ once: true, margin: "-40px" }}
-        transition={{ duration: 0.9, ease: [0.25, 0.46, 0.45, 0.94] }}
-        className="h-px flex-1 origin-right"
-        style={{ background: "linear-gradient(to left, transparent, rgba(6,182,212,0.25))" }}
-      />
+        {/* Diamond centre */}
+        <motion.div
+          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-2 h-2 bg-cyan-500/70 rotate-45"
+          animate={{ opacity: [0.3, 1, 0.3], scale: [0.8, 1.2, 0.8] }}
+          transition={{ duration: 2, repeat: Infinity }}
+        />
+      </div>
     </div>
   );
 }

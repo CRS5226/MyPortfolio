@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ExternalLink, FileText } from "lucide-react";
+import Image from "next/image";
 import { publications } from "@/lib/data";
 import SectionReveal from "./SectionReveal";
 export default function Publications() {
@@ -15,6 +16,23 @@ export default function Publications() {
           <p className="text-primary text-xs font-semibold uppercase tracking-[0.2em] mb-3">Research</p>
           <h2 className="text-4xl md:text-5xl font-bold text-slate-100">Publications</h2>
         </motion.div>
+
+        {/* Featured research image banner */}
+        <div className="mb-10 rounded-2xl overflow-hidden border border-slate-800 relative">
+          <Image
+            src="/images/PVNet_thinking_process.png"
+            alt="Policy-Value Network — MDP-MCTS Framework"
+            width={1200}
+            height={400}
+            className="w-full object-cover"
+            style={{ maxHeight: 260, objectFit: "cover", objectPosition: "center top" }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent" />
+          <div className="absolute bottom-4 left-5">
+            <span className="text-xs font-mono text-cyan-400 uppercase tracking-widest">Featured Research</span>
+            <p className="text-sm text-slate-300 font-medium mt-0.5">Policy-Value Guided MDP-MCTS Framework for Cyber Kill-Chain Inference</p>
+          </div>
+        </div>
 
         <div className="grid gap-4">
           {publications.map((pub, i) => (

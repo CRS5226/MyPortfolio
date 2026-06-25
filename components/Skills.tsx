@@ -2,20 +2,37 @@
 
 import { motion } from "framer-motion";
 import { Award } from "lucide-react";
-import { skills, certificates } from "@/lib/data";
+import {
+  SiPython, SiCplusplus, SiHtml5, SiCss, SiFlask, SiScikitlearn,
+  SiNodedotjs, SiPytorch, SiTensorflow, SiGit, SiDocker, SiMongodb,
+  SiFastapi, SiRedis, SiNextdotjs, SiNginx,
+} from "react-icons/si";
+import { certificates } from "@/lib/data";
 import SectionReveal from "./SectionReveal";
-
-const categoryConfig: Record<string, { tag: string; dot: string }> = {
-  Languages:      { tag: "bg-cyan-950/60 text-cyan-300 border-cyan-900/50",     dot: "bg-cyan-400" },
-  Frameworks:     { tag: "bg-violet-950/60 text-violet-300 border-violet-900/50", dot: "bg-violet-400" },
-  Tools:          { tag: "bg-emerald-950/60 text-emerald-300 border-emerald-900/50", dot: "bg-emerald-400" },
-  Certifications: { tag: "bg-amber-950/60 text-amber-300 border-amber-900/50",   dot: "bg-amber-400" },
-};
 
 const allTechs = [
   "C++", "Python", "PyTorch", "TensorFlow", "Flask", "NodeJS", "Scikit-learn",
   "Docker", "MongoDB", "Git", "FastAPI", "Redis", "Next.js", "Claude API",
   "Zerodha API", "Nginx", "PM2", "HTML", "CSS",
+];
+
+const iconGrid = [
+  { Icon: SiPython,     name: "Python",       color: "#3776AB" },
+  { Icon: SiCplusplus,  name: "C++",          color: "#00599C" },
+  { Icon: SiHtml5,      name: "HTML5",        color: "#E34F26" },
+  { Icon: SiCss,        name: "CSS3",         color: "#1572B6" },
+  { Icon: SiFlask,      name: "Flask",        color: "#ffffff" },
+  { Icon: SiScikitlearn,name: "Scikit-learn", color: "#F7931E" },
+  { Icon: SiNodedotjs,  name: "Node.js",      color: "#339933" },
+  { Icon: SiPytorch,    name: "PyTorch",      color: "#EE4C2C" },
+  { Icon: SiTensorflow, name: "TensorFlow",   color: "#FF6F00" },
+  { Icon: SiGit,        name: "Git",          color: "#F05032" },
+  { Icon: SiDocker,     name: "Docker",       color: "#2496ED" },
+  { Icon: SiMongodb,    name: "MongoDB",      color: "#47A248" },
+  { Icon: SiFastapi,    name: "FastAPI",      color: "#009688" },
+  { Icon: SiRedis,      name: "Redis",        color: "#DC382D" },
+  { Icon: SiNextdotjs,  name: "Next.js",      color: "#ffffff" },
+  { Icon: SiNginx,      name: "Nginx",        color: "#009639" },
 ];
 
 export default function Skills() {
@@ -41,32 +58,22 @@ export default function Skills() {
           </div>
         </div>
 
-        {/* Category cards */}
-        <div className="grid sm:grid-cols-2 gap-5">
-          {skills.map((group, i) => {
-            const cfg = categoryConfig[group.category] ?? { tag: "bg-slate-800 text-slate-300 border-slate-700", dot: "bg-slate-400" };
-            return (
-              <motion.div key={group.category}
-                initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="p-6 rounded-2xl border border-slate-800 bg-slate-900/50 hover:border-slate-700 transition-all duration-300">
-                <div className="flex items-center gap-2 mb-4">
-                  <span className={`w-2 h-2 rounded-full ${cfg.dot}`} />
-                  <h3 className="text-xs font-semibold text-slate-500 uppercase tracking-[0.15em]">{group.category}</h3>
-                </div>
-                <div className="flex flex-wrap gap-2">
-                  {group.items.map((item, j) => (
-                    <motion.span key={item}
-                      initial={{ opacity: 0, scale: 0.8 }} whileInView={{ opacity: 1, scale: 1 }}
-                      viewport={{ once: true }} transition={{ duration: 0.3, delay: i * 0.1 + j * 0.05 }}
-                      className={`px-3 py-1 rounded-full text-xs font-medium border ${cfg.tag} hover:scale-105 transition-transform cursor-default`}>
-                      {item}
-                    </motion.span>
-                  ))}
-                </div>
-              </motion.div>
-            );
-          })}
+        {/* Icon grid */}
+        <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 gap-3 mb-14">
+          {iconGrid.map(({ Icon, name, color }, i) => (
+            <motion.div
+              key={name}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: i * 0.04 }}
+              whileHover={{ scale: 1.08, y: -2 }}
+              className="flex flex-col items-center gap-2 p-4 rounded-xl border border-slate-800/60 bg-slate-900/40 hover:border-cyan-800/50 hover:bg-slate-900/70 transition-all duration-200 cursor-default"
+            >
+              <Icon size={36} style={{ color }} />
+              <span className="text-xs text-slate-400 text-center leading-tight">{name}</span>
+            </motion.div>
+          ))}
         </div>
 
         {/* Certifications section */}
