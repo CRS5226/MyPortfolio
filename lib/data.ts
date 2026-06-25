@@ -191,7 +191,7 @@ export const publications: Publication[] = [
     authors: "V. Tiwari, C. Singh, A. Patidar, S. S. Pasha, S. Gupta",
     venue: "International Conference on Entrepreneurship, Innovation, and Leadership",
     year: "2024",
-    href: "#",
+    href: "https://link.springer.com/chapter/10.1007/978-981-96-3936-6_16",
   },
 ];
 

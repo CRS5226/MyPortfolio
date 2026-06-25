@@ -94,12 +94,12 @@ export default function ProjectsResearch() {
                         {relatedPubs.map((pub) => (
                           <a key={pub.href} href={pub.href} target="_blank" rel="noopener noreferrer"
                             className="flex items-start gap-3 group/pub hover:text-primary transition-colors">
-                            <FileText size={13} className="text-slate-600 group-hover/pub:text-primary mt-0.5 flex-shrink-0 transition-colors" />
+                            <FileText size={13} className="text-cyan-600 group-hover/pub:text-primary mt-0.5 flex-shrink-0 transition-colors" />
                             <div className="min-w-0">
-                              <p className="text-xs text-slate-400 group-hover/pub:text-slate-200 transition-colors leading-snug">{pub.title}</p>
-                              <p className="text-[10px] text-slate-600 mt-0.5">{pub.venue} · {pub.year}</p>
+                              <p className="text-xs text-cyan-300/80 group-hover/pub:text-cyan-200 transition-colors leading-snug">{pub.title}</p>
+                              <p className="text-[10px] text-slate-500 mt-0.5">{pub.venue} · {pub.year}</p>
                             </div>
-                            <ExternalLink size={11} className="text-slate-700 group-hover/pub:text-primary flex-shrink-0 mt-0.5 transition-colors" />
+                            <ExternalLink size={11} className="text-cyan-600 group-hover/pub:text-primary flex-shrink-0 mt-0.5 transition-colors" />
                           </a>
                         ))}
                       </div>
@@ -165,7 +165,7 @@ export default function ProjectsResearch() {
                         <h4 className="text-sm font-semibold text-slate-200 leading-snug">{pub.title}</h4>
                         {pub.href !== "#" && (
                           <a href={pub.href} target="_blank" rel="noopener noreferrer"
-                            className="text-slate-600 hover:text-violet-400 transition-colors flex-shrink-0 mt-0.5 opacity-0 group-hover:opacity-100">
+                            className="text-violet-500 hover:text-violet-300 transition-colors flex-shrink-0 mt-0.5">
                             <ExternalLink size={13} />
                           </a>
                         )}
