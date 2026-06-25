@@ -8,6 +8,7 @@ import Projects from "@/components/Projects";
 import Publications from "@/components/Publications";
 import Education from "@/components/Education";
 import Contact from "@/components/Contact";
+import SectionDivider from "@/components/SectionDivider";
 
 const ScrollProgress = dynamic(() => import("@/components/ScrollProgress"), { ssr: false });
 
@@ -18,12 +19,19 @@ export default function Home() {
       <main className="relative" style={{ zIndex: 2 }}>
         <Navbar />
         <Hero />
+        <SectionDivider />
         <About />
+        <SectionDivider />
         <Experience />
+        <SectionDivider />
         <Skills />
+        <SectionDivider />
         <Projects />
+        <SectionDivider />
         <Publications />
+        <SectionDivider />
         <Education />
+        <SectionDivider />
         <Contact />
       </main>
     </>

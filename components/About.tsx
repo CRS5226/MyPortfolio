@@ -4,6 +4,7 @@ import { motion, useInView } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
 import { FileText, Brain, Cpu } from "lucide-react";
 import Image from "next/image";
+import SectionReveal from "./SectionReveal";
 
 function CountUp({ target, suffix = "" }: { target: number; suffix?: string }) {
   const ref = useRef<HTMLSpanElement>(null);
@@ -34,7 +35,7 @@ const stats = [
 export default function About() {
   return (
     <section id="about" className="py-28 px-6 relative overflow-hidden">
-      <div className="max-w-5xl mx-auto">
+      <SectionReveal><div className="max-w-5xl mx-auto">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }} transition={{ duration: 0.5 }}
           className="text-center mb-16 relative">
@@ -107,7 +108,7 @@ export default function About() {
             ))}
           </motion.div>
         </div>
-      </div>
+      </div></SectionReveal>
     </section>
   );
 }

@@ -4,11 +4,12 @@ import { motion } from "framer-motion";
 import { MapPin, Calendar, ExternalLink } from "lucide-react";
 import { experiences } from "@/lib/data";
 import Image from "next/image";
+import SectionReveal from "./SectionReveal";
 
 export default function Experience() {
   return (
     <section id="experience" className="py-28 px-6 bg-slate-900/20 relative overflow-hidden">
-      <div className="max-w-5xl mx-auto">
+      <SectionReveal><div className="max-w-5xl mx-auto">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }} transition={{ duration: 0.5 }}
           className="text-center mb-16 relative">
@@ -77,7 +78,7 @@ export default function Experience() {
             ))}
           </div>
         </div>
-      </div>
+      </div></SectionReveal>
     </section>
   );
 }

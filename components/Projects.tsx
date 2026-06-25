@@ -4,11 +4,12 @@ import { motion } from "framer-motion";
 import { ExternalLink } from "lucide-react";
 import { projects } from "@/lib/data";
 import Image from "next/image";
+import SectionReveal from "./SectionReveal";
 
 export default function Projects() {
   return (
     <section id="projects" className="py-28 px-6 relative overflow-hidden">
-      <div className="relative z-10 max-w-5xl mx-auto">
+      <SectionReveal><div className="relative z-10 max-w-5xl mx-auto">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }} transition={{ duration: 0.5 }}
           className="text-center mb-16 relative">
@@ -71,7 +72,7 @@ export default function Projects() {
             </motion.div>
           ))}
         </div>
-      </div>
+      </div></SectionReveal>
     </section>
   );
 }

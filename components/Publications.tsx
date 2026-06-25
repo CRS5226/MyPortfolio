@@ -3,10 +3,11 @@
 import { motion } from "framer-motion";
 import { ExternalLink, FileText } from "lucide-react";
 import { publications } from "@/lib/data";
+import SectionReveal from "./SectionReveal";
 export default function Publications() {
   return (
     <section id="publications" className="py-28 px-6 relative overflow-hidden bg-slate-900/20">
-      <div className="relative z-10 max-w-5xl mx-auto">
+      <SectionReveal><div className="relative z-10 max-w-5xl mx-auto">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }} transition={{ duration: 0.5 }}
           className="text-center mb-16 relative">
@@ -44,7 +45,7 @@ export default function Publications() {
             </motion.div>
           ))}
         </div>
-      </div>
+      </div></SectionReveal>
     </section>
   );
 }

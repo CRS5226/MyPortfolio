@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Mail, BookOpen, Send } from "lucide-react";
+import SectionReveal from "./SectionReveal";
 import { personalInfo } from "@/lib/data";
 
 const fadeUp = { hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } };
@@ -23,7 +24,7 @@ const socialLinks = [
 export default function Contact() {
   return (
     <section id="contact" className="py-28 px-6 relative">
-      <div className="max-w-5xl mx-auto">
+      <SectionReveal><div className="max-w-5xl mx-auto">
         <motion.div variants={fadeUp} initial="hidden" whileInView="visible"
           viewport={{ once: true }} transition={{ duration: 0.5 }}
           className="text-center mb-16 relative">
@@ -83,7 +84,7 @@ export default function Contact() {
           className="text-center text-xs text-slate-600 mt-20">
           © {new Date().getFullYear()} Chitraksh Singh. Built with Next.js & Tailwind CSS.
         </motion.p>
-      </div>
+      </div></SectionReveal>
     </section>
   );
 }

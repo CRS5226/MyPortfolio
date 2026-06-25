@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Award } from "lucide-react";
 import { skills, certificates } from "@/lib/data";
+import SectionReveal from "./SectionReveal";
 
 const categoryConfig: Record<string, { tag: string; dot: string }> = {
   Languages:      { tag: "bg-cyan-950/60 text-cyan-300 border-cyan-900/50",     dot: "bg-cyan-400" },
@@ -20,7 +21,7 @@ const allTechs = [
 export default function Skills() {
   return (
     <section id="skills" className="py-28 px-6 overflow-hidden">
-      <div className="max-w-5xl mx-auto">
+      <SectionReveal><div className="max-w-5xl mx-auto">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }} transition={{ duration: 0.5 }}
           className="text-center mb-10 relative">
@@ -102,7 +103,7 @@ export default function Skills() {
             ))}
           </div>
         </motion.div>
-      </div>
+      </div></SectionReveal>
     </section>
   );
 }
