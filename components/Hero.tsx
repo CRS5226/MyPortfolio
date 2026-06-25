@@ -4,9 +4,6 @@ import { motion, useMotionValue, useSpring } from "framer-motion";
 import { useEffect, useState, useRef } from "react";
 import { ArrowDown, Mail, BookOpen } from "lucide-react";
 import { personalInfo } from "@/lib/data";
-import ParticleCanvas from "./ParticleCanvas";
-import MarketLine from "./MarketLine";
-import NeuralNet3D from "./NeuralNet3D";
 
 const TITLES = [
   "Machine Learning Engineer",
@@ -96,20 +93,6 @@ export default function Hero() {
       <div className="absolute inset-0 pointer-events-none"
         style={{ background: "radial-gradient(ellipse 80% 50% at 50% 0%, rgba(6,182,212,0.10) 0%, transparent 70%)" }} />
 
-      {/* Market line SVG — desktop only */}
-      <div className="hidden md:block absolute inset-0 pointer-events-none">
-        <MarketLine />
-      </div>
-
-      {/* 3D Neural Net — desktop */}
-      <div className="hidden md:block absolute inset-0 pointer-events-none">
-        <NeuralNet3D />
-      </div>
-
-      {/* Particle canvas — mobile fallback */}
-      <div className="md:hidden absolute inset-0 pointer-events-none">
-        <ParticleCanvas />
-      </div>
 
       <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
         <motion.div
