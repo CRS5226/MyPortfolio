@@ -188,10 +188,10 @@ export const publications: Publication[] = [
   },
   {
     title: "Towards U-Net Based Semantic Segmentation for Satellite Images",
-    authors: "C. Singh, D. K. Dewangan",
+    authors: "Chitraksh Singh, Deepak Kumar Dewangan",
     venue: "IEEE International Conference on Intelligent Signal Processing",
     year: "2024",
-    href: "#",
+    href: "https://ieeexplore.ieee.org/abstract/document/10896139",
   },
   {
     title: "Empowering DDoS Resilience: Machine Learning Strategies for Enhanced Cybersecurity",

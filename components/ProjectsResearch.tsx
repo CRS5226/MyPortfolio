@@ -36,14 +36,13 @@ export default function ProjectsResearch() {
             initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }} transition={{ duration: 0.5 }}
             className="text-center mb-16 relative">
-            <span className="hidden md:block absolute -top-6 right-0 text-[160px] font-bold opacity-[0.035] blur-sm select-none pointer-events-none text-slate-900 dark:text-slate-100 leading-none">04</span>
             <p className="text-primary text-xs font-semibold uppercase tracking-[0.2em] mb-3">Projects & Research</p>
             <h2 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-slate-100">What I&apos;ve Built & Researched</h2>
           </motion.div>
 
           {/* Project cards */}
           <motion.div
-            className="grid gap-8 mb-16"
+            className="grid md:grid-cols-2 gap-8 mb-16"
             variants={container}
             initial="hidden"
             whileInView="visible"
@@ -119,17 +118,19 @@ export default function ProjectsResearch() {
                       </div>
                     )}
 
-                    {/* Satellite: show venue attribution without link */}
+                    {/* Satellite: link to IEEE paper */}
                     {isSatellite && (
                       <div className="border-t border-slate-200 dark:border-slate-800 pt-5 mt-1">
                         <p className="text-[10px] font-semibold text-slate-400 dark:text-slate-600 uppercase tracking-widest mb-2">Published Research</p>
-                        <div className="flex items-start gap-3">
-                          <FileText size={13} className="text-slate-600 mt-0.5 flex-shrink-0" />
-                          <div>
-                            <p className="text-xs text-slate-700 dark:text-slate-400 leading-snug">Towards U-Net Based Semantic Segmentation for Satellite Images</p>
-                            <p className="text-[10px] text-slate-400 dark:text-slate-600 mt-0.5">{satelliteVenue}</p>
+                        <a href="https://ieeexplore.ieee.org/abstract/document/10896139" target="_blank" rel="noopener noreferrer"
+                          className="flex items-start gap-3 group/pub hover:text-primary transition-colors">
+                          <FileText size={13} className="text-cyan-600 group-hover/pub:text-primary mt-0.5 flex-shrink-0 transition-colors" />
+                          <div className="min-w-0">
+                            <p className="text-xs text-cyan-700 dark:text-cyan-300/80 group-hover/pub:text-cyan-600 dark:group-hover/pub:text-cyan-200 transition-colors leading-snug">Towards U-Net Based Semantic Segmentation for Satellite Images</p>
+                            <p className="text-[10px] text-slate-500 mt-0.5">{satelliteVenue}</p>
                           </div>
-                        </div>
+                          <ExternalLink size={11} className="text-cyan-600 group-hover/pub:text-primary flex-shrink-0 mt-0.5 transition-colors" />
+                        </a>
                       </div>
                     )}
                   </div>

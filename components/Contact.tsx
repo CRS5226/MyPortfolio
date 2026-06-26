@@ -29,7 +29,6 @@ export default function Contact() {
         <motion.div variants={fadeUp} initial="hidden" whileInView="visible"
           viewport={{ once: true }} transition={{ duration: 0.5 }}
           className="text-center mb-16 relative">
-          <span className="hidden md:block absolute -top-6 right-0 text-[160px] font-bold opacity-[0.035] blur-sm select-none pointer-events-none text-slate-900 dark:text-slate-100 leading-none">07</span>
           <p className="text-primary text-xs font-semibold uppercase tracking-[0.2em] mb-3">Contact</p>
           <h2 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-slate-100"><TypewriterText text="Get In Touch" /></h2>
           <p className="text-slate-700 dark:text-slate-400 mt-4 max-w-lg mx-auto text-base leading-relaxed">

@@ -51,7 +51,6 @@ export default function Skills() {
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }} transition={{ duration: 0.5 }}
           className="text-center mb-10 relative">
-          <span className="hidden md:block absolute -top-6 right-0 text-[160px] font-bold opacity-[0.035] blur-sm select-none pointer-events-none text-slate-900 dark:text-slate-100 leading-none">03</span>
           <p className="text-primary text-xs font-semibold uppercase tracking-[0.2em] mb-3">Skills</p>
           <h2 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-slate-100">Tech Stack</h2>
         </motion.div>
