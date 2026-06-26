@@ -5,6 +5,7 @@ import { ExternalLink, FileText } from "lucide-react";
 import { projects, publications } from "@/lib/data";
 import Image from "next/image";
 import SectionReveal from "./SectionReveal";
+import TiltCard from "./TiltCard";
 
 // KillChainGraph papers (index 0,1) are surfaced inside the project card
 // Hamiltonian (index 2) and DDoS (index 4) are standalone below
@@ -57,7 +58,8 @@ export default function ProjectsResearch() {
               return (
                 <motion.div key={project.name}
                   variants={item}
-                  className="group rounded-2xl border border-slate-800 bg-slate-900/70 backdrop-blur-sm hover:border-cyan-800/50 transition-all duration-300 overflow-hidden">
+                  className="overflow-hidden">
+                  <TiltCard className="group rounded-2xl border border-slate-800 bg-slate-900/70 backdrop-blur-sm hover:border-cyan-800/50 transition-all duration-300 overflow-hidden">
 
                   {/* Project image */}
                   {project.image && (
@@ -133,6 +135,7 @@ export default function ProjectsResearch() {
                       </div>
                     )}
                   </div>
+                  </TiltCard>
                 </motion.div>
               );
             })}

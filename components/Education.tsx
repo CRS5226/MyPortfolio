@@ -5,6 +5,7 @@ import { MapPin, Calendar } from "lucide-react";
 import { education } from "@/lib/data";
 import Image from "next/image";
 import SectionReveal from "./SectionReveal";
+import TypewriterText from "./TypewriterText";
 
 const container = {
   hidden: {},
@@ -24,7 +25,7 @@ export default function Education() {
           className="text-center mb-16 relative">
           <span className="hidden md:block absolute -top-6 right-0 text-[160px] font-bold opacity-[0.035] blur-sm select-none pointer-events-none text-slate-100 leading-none">06</span>
           <p className="text-primary text-xs font-semibold uppercase tracking-[0.2em] mb-3">Education</p>
-          <h2 className="text-4xl md:text-5xl font-bold text-slate-100">Academic Background</h2>
+          <h2 className="text-4xl md:text-5xl font-bold text-slate-100"><TypewriterText text="Academic Background" /></h2>
         </motion.div>
 
         <motion.div

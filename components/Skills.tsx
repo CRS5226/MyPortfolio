@@ -79,10 +79,13 @@ export default function Skills() {
             <motion.div
               key={name}
               variants={item}
-              whileHover={{ scale: 1.08, y: -2 }}
-              className="flex flex-col items-center gap-2 p-4 rounded-xl border border-slate-800/60 bg-slate-900/40 hover:border-cyan-800/50 hover:bg-slate-900/70 transition-all duration-200 cursor-default"
+              whileHover={{ scale: 1.1, y: -3 }}
+              style={{ "--glow": color } as React.CSSProperties}
+              className="flex flex-col items-center gap-2 p-4 rounded-xl border border-slate-800/60 bg-slate-900/40 hover:border-cyan-800/50 hover:bg-slate-900/70 transition-all duration-200 cursor-default group"
             >
-              <Icon size={36} style={{ color }} />
+              <span className="transition-all duration-300 group-hover:[filter:drop-shadow(0_0_8px_var(--glow))]">
+                <Icon size={36} style={{ color }} />
+              </span>
               <span className="text-xs text-slate-400 text-center leading-tight">{name}</span>
             </motion.div>
           ))}

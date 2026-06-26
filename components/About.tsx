@@ -1,30 +1,12 @@
 "use client";
 
-import { motion, useInView } from "framer-motion";
-import { useRef, useEffect, useState } from "react";
+import { motion } from "framer-motion";
 import { FileText, Brain, Cpu } from "lucide-react";
 import Image from "next/image";
 import SectionReveal from "./SectionReveal";
+import TypewriterText from "./TypewriterText";
+import AnimatedCounter from "./AnimatedCounter";
 
-function CountUp({ target, suffix = "" }: { target: number; suffix?: string }) {
-  const ref = useRef<HTMLSpanElement>(null);
-  const inView = useInView(ref, { once: true });
-  const [count, setCount] = useState(0);
-
-  useEffect(() => {
-    if (!inView) return;
-    let start = 0;
-    const step = target / 40;
-    const timer = setInterval(() => {
-      start += step;
-      if (start >= target) { setCount(target); clearInterval(timer); }
-      else setCount(Math.floor(start));
-    }, 30);
-    return () => clearInterval(timer);
-  }, [inView, target]);
-
-  return <span ref={ref}>{count}{suffix}</span>;
-}
 
 const stats = [
   { icon: FileText, value: 5, suffix: "+", label: "Research Papers" },
@@ -41,7 +23,7 @@ export default function About() {
           className="text-center mb-16 relative">
           <span className="hidden md:block absolute -top-6 right-0 text-[160px] font-bold opacity-[0.035] blur-sm select-none pointer-events-none text-slate-100 leading-none">01</span>
           <p className="text-primary text-xs font-semibold uppercase tracking-[0.2em] mb-3">About</p>
-          <h2 className="text-4xl md:text-5xl font-bold text-slate-100">Who I Am</h2>
+          <h2 className="text-4xl md:text-5xl font-bold text-slate-100"><TypewriterText text="Who I Am" /></h2>
         </motion.div>
 
         <div className="grid md:grid-cols-5 gap-12 items-center">
@@ -99,7 +81,9 @@ export default function About() {
                   </div>
                   <div>
                     <p className="text-2xl font-bold text-slate-100 tabular-nums">
-                      {decimal ? "9.27" : <CountUp target={value} suffix={suffix} />}
+                      {decimal
+                        ? <AnimatedCounter to={9.27} decimals={2} />
+                        : <AnimatedCounter to={value} suffix={suffix} />}
                     </p>
                     <p className="text-xs text-slate-500">{label}</p>
                   </div>

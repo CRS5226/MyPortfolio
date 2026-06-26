@@ -5,6 +5,10 @@ import { useEffect, useState, useRef } from "react";
 import { Mail, BookOpen } from "lucide-react";
 import { personalInfo } from "@/lib/data";
 import Image from "next/image";
+import dynamic from "next/dynamic";
+import ScrambleText from "./ScrambleText";
+
+const ParticleMesh = dynamic(() => import("./ParticleMesh"), { ssr: false });
 
 const TITLES = [
   "Machine Learning Engineer",
@@ -42,25 +46,6 @@ function TypewriterTitle() {
   );
 }
 
-function AnimatedName() {
-  const letters = personalInfo.name.split("");
-  return (
-    <span className="inline-flex flex-wrap md:justify-start justify-center">
-      {letters.map((char, i) => (
-        <motion.span
-          key={i}
-          initial={{ opacity: 0, y: 40, rotateX: -90 }}
-          animate={{ opacity: 1, y: 0, rotateX: 0 }}
-          transition={{ duration: 0.5, delay: 0.3 + i * 0.04, ease: [0.215, 0.61, 0.355, 1] }}
-          className={char === " " ? "mr-4" : "gradient-text"}
-          style={{ display: "inline-block", transformOrigin: "bottom" }}
-        >
-          {char}
-        </motion.span>
-      ))}
-    </span>
-  );
-}
 
 function MagneticButton({ children, className, href }: { children: React.ReactNode; className: string; href: string }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -87,6 +72,7 @@ function MagneticButton({ children, className, href }: { children: React.ReactNo
 export default function Hero() {
   return (
     <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      <ParticleMesh />
       {/* Grid bg */}
       <div className="absolute inset-0 grid-bg opacity-60" />
 
@@ -110,7 +96,7 @@ export default function Hero() {
             </motion.div>
 
             <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight leading-none mb-5">
-              <AnimatedName />
+              <ScrambleText text="Chitraksh Singh" className="gradient-text" />
             </h1>
 
             <motion.div
