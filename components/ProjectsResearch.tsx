@@ -57,7 +57,7 @@ export default function ProjectsResearch() {
               return (
                 <motion.div key={project.name}
                   variants={item}
-                  className="group rounded-2xl border border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-slate-900/70 backdrop-blur-sm hover:border-cyan-800/50 transition-all duration-300 overflow-hidden">
+                  className="group rounded-2xl border border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-slate-900/70 backdrop-blur-sm hover:border-cyan-800/50 transition-all duration-300 overflow-hidden shadow-sm dark:shadow-none">
 
                   {/* Project image */}
                   {project.image && (
@@ -110,7 +110,7 @@ export default function ProjectsResearch() {
                             className="flex items-start gap-3 group/pub hover:text-primary transition-colors">
                             <FileText size={13} className="text-cyan-600 group-hover/pub:text-primary mt-0.5 flex-shrink-0 transition-colors" />
                             <div className="min-w-0">
-                              <p className="text-xs text-cyan-300/80 group-hover/pub:text-cyan-200 transition-colors leading-snug">{pub.title}</p>
+                              <p className="text-xs text-cyan-700 dark:text-cyan-300/80 group-hover/pub:text-cyan-600 dark:group-hover/pub:text-cyan-200 transition-colors leading-snug">{pub.title}</p>
                               <p className="text-[10px] text-slate-500 mt-0.5">{pub.venue} · {pub.year}</p>
                             </div>
                             <ExternalLink size={11} className="text-cyan-600 group-hover/pub:text-primary flex-shrink-0 mt-0.5 transition-colors" />
@@ -175,9 +175,9 @@ export default function ProjectsResearch() {
                 return (
                   <motion.div key={pub.title}
                     variants={item}
-                    className="group flex gap-4 p-5 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/70 dark:bg-slate-900/60 hover:border-violet-800/40 transition-all duration-300">
-                    <div className="w-8 h-8 rounded-lg bg-violet-950/50 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:bg-violet-950/80 transition-colors">
-                      <FileText size={14} className="text-violet-400" />
+                    className="group flex gap-4 p-5 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/70 dark:bg-slate-900/60 hover:border-violet-800/40 transition-all duration-300 shadow-sm dark:shadow-none">
+                    <div className="w-8 h-8 rounded-lg bg-violet-100/50 dark:bg-violet-950/50 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:bg-violet-100 dark:group-hover:bg-violet-950/80 transition-colors">
+                      <FileText size={14} className="text-violet-600 dark:text-violet-400" />
                     </div>
                     <div className="flex-1 min-w-0">
                       <div className="flex items-start justify-between gap-3">
@@ -192,7 +192,7 @@ export default function ProjectsResearch() {
                       <p className="text-xs text-slate-400 dark:text-slate-600 mt-1">{pub.authors}</p>
                       <div className="flex items-center gap-2 mt-2 flex-wrap">
                         <span className="text-xs text-slate-500 dark:text-slate-500 truncate">{pub.venue}</span>
-                        <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-semibold bg-violet-950/50 text-violet-400 border border-violet-900/40 flex-shrink-0">{pub.year}</span>
+                        <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-semibold bg-violet-100 dark:bg-violet-950/50 text-violet-600 dark:text-violet-400 border border-violet-300/60 dark:border-violet-900/40 flex-shrink-0">{pub.year}</span>
                       </div>
                     </div>
                   </motion.div>

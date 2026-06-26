@@ -89,7 +89,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-cyan-800/50 bg-cyan-950/30 text-cyan-400 text-xs font-medium mb-8 tracking-wider uppercase"
+              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-cyan-300/60 dark:border-cyan-800/50 bg-cyan-100/60 dark:bg-cyan-950/30 text-cyan-700 dark:text-cyan-400 text-xs font-medium mb-8 tracking-wider uppercase"
             >
               <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
               Open to Opportunities

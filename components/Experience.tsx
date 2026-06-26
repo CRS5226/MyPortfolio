@@ -29,7 +29,7 @@ export default function Experience() {
         </motion.div>
 
         <div className="relative">
-          <div className="absolute left-5 top-0 bottom-0 w-px bg-gradient-to-b from-primary via-slate-700 to-transparent" />
+          <div className="absolute left-5 top-0 bottom-0 w-px bg-gradient-to-b from-primary via-slate-300 dark:via-slate-700 to-transparent" />
           <motion.div
             className="space-y-10"
             variants={container}
@@ -43,12 +43,12 @@ export default function Experience() {
                 className="relative pl-14">
                 <motion.div initial={{ scale: 0 }} whileInView={{ scale: 1 }}
                   viewport={{ once: true }} transition={{ duration: 0.3, delay: i * 0.1 + 0.2 }}
-                  className="absolute left-[14px] top-5 w-3 h-3 rounded-full bg-primary border-2 border-slate-950 shadow-[0_0_8px_rgba(6,182,212,0.6)]" />
-                <div className="group p-6 rounded-2xl border border-slate-200/80 dark:border-slate-800/80 bg-white/70 dark:bg-slate-900/60 hover:border-cyan-800/50 hover:bg-white/90 dark:hover:bg-slate-900/80 transition-all duration-300">
+                  className="absolute left-[14px] top-5 w-3 h-3 rounded-full bg-primary border-2 border-slate-100 dark:border-slate-950 shadow-[0_0_8px_rgba(6,182,212,0.6)]" />
+                <div className="group p-6 rounded-2xl border border-slate-200/80 dark:border-slate-800/80 bg-white/70 dark:bg-slate-900/60 hover:border-cyan-800/50 hover:bg-white/90 dark:hover:bg-slate-900/80 transition-all duration-300 shadow-sm dark:shadow-none">
                   <div className="flex flex-wrap items-start justify-between gap-3 mb-5">
                     <div className="flex items-center gap-4">
                       {exp.logo && (
-                        <div className="bg-slate-800/50 rounded-lg px-3 py-2 flex items-center justify-center flex-shrink-0">
+                        <div className="bg-slate-200/80 dark:bg-slate-800/50 rounded-lg px-3 py-2 flex items-center justify-center flex-shrink-0">
                           <Image
                             src={exp.logo}
                             alt={`${exp.company} logo`}
@@ -60,7 +60,7 @@ export default function Experience() {
                       )}
                       <div>
                         <h3 className="text-lg font-bold text-slate-900 dark:text-slate-100">{exp.role}</h3>
-                        <span className="inline-block mt-1 px-2.5 py-0.5 rounded-md text-xs font-semibold bg-cyan-950/60 text-primary border border-cyan-900/40">{exp.company}</span>
+                        <span className="inline-block mt-1 px-2.5 py-0.5 rounded-md text-xs font-semibold bg-cyan-100/80 dark:bg-cyan-950/60 text-cyan-700 dark:text-primary border border-cyan-300/60 dark:border-cyan-900/40">{exp.company}</span>
                       </div>
                     </div>
                     <div className="flex flex-col items-end gap-1.5">

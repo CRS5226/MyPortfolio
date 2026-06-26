@@ -21,7 +21,7 @@ const iconGrid = [
   { Icon: SiCplusplus,  name: "C++",          color: "#00599C" },
   { Icon: SiHtml5,      name: "HTML5",        color: "#E34F26" },
   { Icon: SiCss,        name: "CSS3",         color: "#1572B6" },
-  { Icon: SiFlask,      name: "Flask",        color: "#ffffff" },
+  { Icon: SiFlask,      name: "Flask",        color: "#555f6b" },
   { Icon: SiScikitlearn,name: "Scikit-learn", color: "#F7931E" },
   { Icon: SiNodedotjs,  name: "Node.js",      color: "#339933" },
   { Icon: SiPytorch,    name: "PyTorch",      color: "#EE4C2C" },
@@ -31,7 +31,7 @@ const iconGrid = [
   { Icon: SiMongodb,    name: "MongoDB",      color: "#47A248" },
   { Icon: SiFastapi,    name: "FastAPI",      color: "#009688" },
   { Icon: SiRedis,      name: "Redis",        color: "#DC382D" },
-  { Icon: SiNextdotjs,  name: "Next.js",      color: "#ffffff" },
+  { Icon: SiNextdotjs,  name: "Next.js",      color: "#555f6b" },
   { Icon: SiNginx,      name: "Nginx",        color: "#009639" },
 ];
 
@@ -81,7 +81,7 @@ export default function Skills() {
               variants={item}
               whileHover={{ scale: 1.1, y: -3 }}
               style={{ "--glow": color } as React.CSSProperties}
-              className="flex flex-col items-center gap-2 p-4 rounded-xl border border-slate-200/60 dark:border-slate-800/60 bg-white/50 dark:bg-slate-900/40 hover:border-cyan-800/50 hover:bg-white/80 dark:hover:bg-slate-900/70 transition-all duration-200 cursor-default group"
+              className="flex flex-col items-center gap-2 p-4 rounded-xl border border-slate-200/60 dark:border-slate-800/60 bg-white/50 dark:bg-slate-900/40 hover:border-cyan-800/50 hover:bg-white/80 dark:hover:bg-slate-900/70 transition-all duration-200 cursor-default group shadow-sm dark:shadow-none"
             >
               <span className="transition-all duration-300 group-hover:[filter:drop-shadow(0_0_8px_var(--glow))]">
                 <Icon size={36} style={{ color }} />
@@ -116,8 +116,8 @@ export default function Skills() {
                 variants={item}
                 className="group flex items-start gap-4 p-5 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white/60 dark:bg-slate-900/50 hover:border-cyan-800/50 hover:bg-white/90 dark:hover:bg-slate-900/80 transition-all duration-300 cursor-pointer"
               >
-                <div className="w-10 h-10 rounded-lg bg-amber-950/50 flex items-center justify-center flex-shrink-0 group-hover:bg-amber-950/80 transition-colors">
-                  <Award size={18} className="text-amber-400" />
+                <div className="w-10 h-10 rounded-lg bg-amber-100/50 dark:bg-amber-950/50 flex items-center justify-center flex-shrink-0 group-hover:bg-amber-100 dark:group-hover:bg-amber-950/80 transition-colors">
+                  <Award size={18} className="text-amber-600 dark:text-amber-400" />
                 </div>
                 <div className="min-w-0">
                   <p className="text-sm font-semibold text-slate-800 dark:text-slate-200 leading-snug mb-0.5">{cert.name}</p>

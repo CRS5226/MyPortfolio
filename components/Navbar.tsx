@@ -62,7 +62,7 @@ export default function Navbar() {
                   {active === id && (
                     <motion.span
                       layoutId="nav-pill"
-                      className="absolute inset-0 bg-cyan-950/50 rounded-md"
+                      className="absolute inset-0 bg-cyan-100/80 dark:bg-cyan-950/50 rounded-md"
                       transition={{ type: "spring", bounce: 0.2, duration: 0.4 }}
                     />
                   )}
@@ -109,7 +109,7 @@ export default function Navbar() {
                       href={link.href}
                       onClick={() => setMenuOpen(false)}
                       className={`block px-3 py-2 rounded-md text-sm font-medium transition-colors ${
-                        active === id ? "text-primary bg-cyan-950/40" : "text-slate-500 hover:text-slate-800 dark:hover:text-slate-200"
+                        active === id ? "text-primary bg-cyan-100/80 dark:bg-cyan-950/40" : "text-slate-500 hover:text-slate-800 dark:hover:text-slate-200"
                       }`}
                     >
                       {link.label}

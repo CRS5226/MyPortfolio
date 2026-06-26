@@ -62,7 +62,7 @@ export default function About() {
               viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.4 }}
               className="flex flex-wrap gap-3 mt-7">
               {["Agentic AI", "Cybersecurity ML", "Quant Finance", "Computer Vision", "NLP"].map((tag) => (
-                <span key={tag} className="px-3 py-1 text-xs font-medium rounded-full border border-cyan-900/60 bg-cyan-950/30 text-cyan-400">
+                <span key={tag} className="px-3 py-1 text-xs font-medium rounded-full border border-cyan-300/60 dark:border-cyan-900/60 bg-cyan-100/80 dark:bg-cyan-950/30 text-cyan-700 dark:text-cyan-400">
                   {tag}
                 </span>
               ))}
@@ -74,9 +74,9 @@ export default function About() {
             {stats.map(({ icon: Icon, value, suffix, label, decimal }, i) => (
               <motion.div key={label} initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }} transition={{ duration: 0.4, delay: 0.3 + i * 0.1 }}
-                className="p-5 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/60 dark:bg-slate-900/50 hover:border-cyan-800/60 transition-colors">
+                className="p-5 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/60 dark:bg-slate-900/50 hover:border-cyan-800/60 transition-colors shadow-sm dark:shadow-none">
                 <div className="flex items-center gap-4">
-                  <div className="w-10 h-10 rounded-lg bg-cyan-950/60 flex items-center justify-center">
+                  <div className="w-10 h-10 rounded-lg bg-cyan-100/80 dark:bg-cyan-950/60 flex items-center justify-center">
                     <Icon size={18} className="text-primary" />
                   </div>
                   <div>

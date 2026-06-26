@@ -44,7 +44,7 @@ export default function Contact() {
             {socialLinks.map(({ label, href, Icon, display }) => (
               <a key={label} href={href} target={label !== "Email" ? "_blank" : undefined} rel="noopener noreferrer"
                 className="flex items-center gap-4 p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/70 dark:bg-slate-900/60 hover:border-cyan-800/50 hover:text-primary transition-colors group">
-                <div className="w-9 h-9 rounded-lg bg-cyan-950/50 flex items-center justify-center flex-shrink-0 text-primary"><Icon /></div>
+                <div className="w-9 h-9 rounded-lg bg-cyan-100/60 dark:bg-cyan-950/50 flex items-center justify-center flex-shrink-0 text-primary"><Icon /></div>
                 <div>
                   <p className="text-xs text-slate-500 dark:text-slate-500">{label}</p>
                   <p className="text-sm text-slate-700 dark:text-slate-300 group-hover:text-primary transition-colors">{display}</p>
