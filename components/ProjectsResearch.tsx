@@ -6,12 +6,12 @@ import { projects, publications } from "@/lib/data";
 import Image from "next/image";
 import SectionReveal from "./SectionReveal";
 
-// KillChainGraph papers (index 0,1) are surfaced inside the project card
-// Hamiltonian (index 2) and DDoS (index 4) are standalone below
+// KillChainGraph paper (index 0) is surfaced inside the project card
+// Policy-Value (1), Hamiltonian (2), DDoS (4) are shown as research paper cards
 const projectPapers: Record<string, number[]> = {
-  KillChainGraph: [0, 1],
+  KillChainGraph: [0],
 };
-const standalonePaperIndexes = [2, 4];
+const researchPaperIndexes = [1, 2, 4];
 
 // Satellite project's venue attribution (no public link yet)
 const satelliteVenue = "IEEE International Conference on Intelligent Signal Processing, 2024";
@@ -138,59 +138,62 @@ export default function ProjectsResearch() {
             })}
           </motion.div>
 
-          {/* Standalone research papers */}
+          {/* Research papers section */}
           <motion.div
             initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }} transition={{ duration: 0.5 }}>
-            <div className="flex items-center gap-3 mb-6">
+            <div className="flex items-center gap-3 mb-8">
               <span className="w-2 h-2 rounded-full bg-violet-400/70" />
-              <h3 className="text-xs font-semibold text-slate-500 dark:text-slate-500 uppercase tracking-[0.15em]">Standalone Research</h3>
-            </div>
-
-            {/* PVNet image banner */}
-            <div className="relative rounded-xl overflow-hidden border border-slate-200 dark:border-slate-800 mb-6">
-              <Image
-                src="/images/PVNet_thinking_process.png"
-                alt="Research process"
-                width={1000}
-                height={220}
-                className="w-full object-cover"
-                style={{ maxHeight: 180, objectFit: "cover", objectPosition: "center top" }}
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 to-transparent" />
-              <div className="absolute bottom-3 left-4">
-                <span className="text-[10px] font-mono text-violet-400 uppercase tracking-widest">Ongoing Research</span>
-              </div>
+              <h3 className="text-xs font-semibold text-slate-500 dark:text-slate-500 uppercase tracking-[0.15em]">Research Papers</h3>
             </div>
 
             <motion.div
-              className="grid gap-4"
+              className="grid gap-6"
               variants={container}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: "-60px" }}
             >
-              {standalonePaperIndexes.map((idx) => {
+              {researchPaperIndexes.map((idx) => {
                 const pub = publications[idx];
                 return (
                   <motion.div key={pub.title}
                     variants={item}
-                    className="group flex gap-4 p-5 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/70 dark:bg-slate-900/60 hover:border-violet-800/40 transition-all duration-300 shadow-sm dark:shadow-none">
-                    <div className="w-8 h-8 rounded-lg bg-violet-100/50 dark:bg-violet-950/50 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:bg-violet-100 dark:group-hover:bg-violet-950/80 transition-colors">
-                      <FileText size={14} className="text-violet-600 dark:text-violet-400" />
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <div className="flex items-start justify-between gap-3">
-                        <h4 className="text-sm font-semibold text-slate-800 dark:text-slate-200 leading-snug">{pub.title}</h4>
+                    className="group rounded-2xl border border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-slate-900/70 shadow-sm dark:shadow-none hover:border-violet-400/40 dark:hover:border-violet-800/40 transition-all duration-300 overflow-hidden">
+
+                    {/* Image or placeholder */}
+                    {pub.image ? (
+                      <div className="relative w-full h-44 overflow-hidden">
+                        <Image src={pub.image} alt={pub.title} fill className="object-cover object-top" />
+                        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-slate-900/80" />
+                      </div>
+                    ) : (
+                      <div className="w-full h-32 flex items-center justify-center bg-slate-100/80 dark:bg-slate-800/30 border-b border-slate-200 dark:border-slate-800">
+                        <div className="flex flex-col items-center gap-2 opacity-30">
+                          <FileText size={32} className="text-violet-500" />
+                          <span className="text-xs text-slate-500 dark:text-slate-400 font-mono">image coming soon</span>
+                        </div>
+                      </div>
+                    )}
+
+                    <div className="p-6">
+                      <div className="flex items-start justify-between gap-4 mb-3">
+                        <h4 className="text-base font-bold text-slate-900 dark:text-slate-100 leading-snug">{pub.title}</h4>
                         {pub.href !== "#" && (
                           <a href={pub.href} target="_blank" rel="noopener noreferrer"
-                            className="text-violet-500 hover:text-violet-300 transition-colors flex-shrink-0 mt-0.5">
-                            <ExternalLink size={13} />
+                            className="inline-flex items-center gap-1.5 text-violet-500 hover:text-violet-400 transition-colors text-xs font-medium flex-shrink-0 mt-0.5">
+                            <ExternalLink size={13} />Paper
                           </a>
                         )}
                       </div>
-                      <p className="text-xs text-slate-400 dark:text-slate-600 mt-1">{pub.authors}</p>
-                      <div className="flex items-center gap-2 mt-2 flex-wrap">
+
+                      <p className="text-xs text-slate-500 dark:text-slate-500 mb-3">{pub.authors}</p>
+
+                      {pub.description && (
+                        <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-4">{pub.description}</p>
+                      )}
+
+                      <div className="flex items-center gap-2 flex-wrap">
                         <span className="text-xs text-slate-500 dark:text-slate-500 truncate">{pub.venue}</span>
                         <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-semibold bg-violet-100 dark:bg-violet-950/50 text-violet-600 dark:text-violet-400 border border-violet-300/60 dark:border-violet-900/40 flex-shrink-0">{pub.year}</span>
                       </div>

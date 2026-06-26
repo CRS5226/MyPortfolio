@@ -155,6 +155,8 @@ export interface Publication {
   venue: string;
   year: string;
   href: string;
+  description?: string;
+  image?: string;
 }
 
 export const publications: Publication[] = [
@@ -171,6 +173,9 @@ export const publications: Publication[] = [
     venue: "arXiv preprint arXiv:2512.15150",
     year: "2025",
     href: "https://arxiv.org/abs/2512.15150",
+    image: "/images/PVNet_thinking_process.png",
+    description:
+      "Proposes a reasoning framework that infers complete seven-phase cyber kill chains by coupling phase-conditioned semantic priors from Transformer models with a symbolic Markov Decision Process and an AlphaZero-style Monte Carlo Tree Search guided by a Policy-Value Network. Applied to three real intrusions — FIN6, APT24, and UNC1549 — the approach surpasses Transformer baselines in semantic fidelity and operational coherence.",
   },
   {
     title: "Hamiltonian-Inspired Attention Mechanism for Scalable RF Transmitter Fingerprinting",
@@ -178,6 +183,8 @@ export const publications: Publication[] = [
     venue: "arXiv preprint arXiv:2605.30364",
     year: "2026",
     href: "https://arxiv.org/abs/2605.30364",
+    description:
+      "Proposes the Hamiltonian Transformer, a physics-informed attention architecture that enforces norm-preserving value dynamics within each attention head using a learned skew-symmetric generator and a Störmer-Verlet leapfrog integration step. Evaluated on the WiSig dataset, it achieves 99.12% accuracy under same-day conditions and 61.64% at 150 transmitters, consistently outperforming CNN and Transformer baselines across all scale points.",
   },
   {
     title: "Towards U-Net Based Semantic Segmentation for Satellite Images",
@@ -192,6 +199,8 @@ export const publications: Publication[] = [
     venue: "International Conference on Entrepreneurship, Innovation, and Leadership",
     year: "2024",
     href: "https://link.springer.com/chapter/10.1007/978-981-96-3936-6_16",
+    description:
+      "Presents a cyber forensics approach towards mitigating DDoS attacks using machine learning methods including Random Forest, SVM, and LightGBM, evaluated on CIC-DDoS2019 and DDoS-SDN datasets. LightGBM outperformed all other algorithms, achieving 98.88% accuracy on CICDDoS2019 and 99.99% on SDN data through effective handling of high-dimensional data and ensemble learning.",
   },
 ];
 
