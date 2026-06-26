@@ -6,7 +6,6 @@ import { experiences } from "@/lib/data";
 import Image from "next/image";
 import SectionReveal from "./SectionReveal";
 import TypewriterText from "./TypewriterText";
-import TiltCard from "./TiltCard";
 
 const container = {
   hidden: {},
@@ -45,7 +44,7 @@ export default function Experience() {
                 <motion.div initial={{ scale: 0 }} whileInView={{ scale: 1 }}
                   viewport={{ once: true }} transition={{ duration: 0.3, delay: i * 0.1 + 0.2 }}
                   className="absolute left-[14px] top-5 w-3 h-3 rounded-full bg-primary border-2 border-slate-950 shadow-[0_0_8px_rgba(6,182,212,0.6)]" />
-                <TiltCard className="group p-6 rounded-2xl border border-slate-800/80 bg-slate-900/60 hover:border-cyan-800/50 hover:bg-slate-900/80 transition-all duration-300">
+                <div className="group p-6 rounded-2xl border border-slate-800/80 bg-slate-900/60 hover:border-cyan-800/50 hover:bg-slate-900/80 transition-all duration-300">
                   <div className="flex flex-wrap items-start justify-between gap-3 mb-5">
                     <div className="flex items-center gap-4">
                       {exp.logo && (
@@ -88,7 +87,7 @@ export default function Experience() {
                       </motion.li>
                     ))}
                   </ul>
-                </TiltCard>
+                </div>
               </motion.div>
             ))}
           </motion.div>
