@@ -46,7 +46,7 @@ const item = {
 
 export default function Skills() {
   return (
-    <section id="skills" className="py-28 px-6 overflow-hidden" style={{ background: "radial-gradient(ellipse at 50% 40%, rgba(6,182,212,0.06) 0%, transparent 65%)" }}>
+    <section id="skills" className="py-28 px-6 overflow-hidden" style={{ background: "radial-gradient(ellipse at 50% 40%, rgba(6,182,212,0.1) 0%, transparent 65%), #091a1a" }}>
       <SectionReveal><div className="max-w-5xl mx-auto">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }} transition={{ duration: 0.5 }}

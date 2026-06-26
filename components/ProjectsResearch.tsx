@@ -27,7 +27,7 @@ const item = {
 
 export default function ProjectsResearch() {
   return (
-    <section id="projects" className="py-28 px-6 relative overflow-hidden" style={{ background: "radial-gradient(ellipse at 30% 60%, rgba(16,185,129,0.05) 0%, transparent 65%)" }}>
+    <section id="projects" className="py-28 px-6 relative overflow-hidden" style={{ background: "radial-gradient(ellipse at 30% 60%, rgba(16,185,129,0.1) 0%, transparent 65%), #091612" }}>
       <SectionReveal>
         <div className="relative z-10 max-w-5xl mx-auto">
 

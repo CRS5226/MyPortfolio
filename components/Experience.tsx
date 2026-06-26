@@ -18,7 +18,7 @@ const item = {
 
 export default function Experience() {
   return (
-    <section id="experience" className="py-28 px-6 bg-slate-900/20 relative overflow-hidden" style={{ background: "radial-gradient(ellipse at 70% 40%, rgba(139,92,246,0.07) 0%, transparent 65%)" }}>
+    <section id="experience" className="py-28 px-6 bg-slate-900/20 relative overflow-hidden" style={{ background: "radial-gradient(ellipse at 70% 40%, rgba(139,92,246,0.12) 0%, transparent 65%), #100d20" }}>
       <SectionReveal><div className="max-w-5xl mx-auto">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }} transition={{ duration: 0.5 }}

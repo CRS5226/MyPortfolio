@@ -18,7 +18,7 @@ const item = {
 
 export default function Education() {
   return (
-    <section id="education" className="py-28 px-6 bg-slate-900/20 grid-bg relative" style={{ background: "radial-gradient(ellipse at 70% 30%, rgba(245,158,11,0.05) 0%, transparent 65%)" }}>
+    <section id="education" className="py-28 px-6 bg-slate-900/20 grid-bg relative" style={{ background: "radial-gradient(ellipse at 70% 30%, rgba(245,158,11,0.1) 0%, transparent 65%), #131008" }}>
       <SectionReveal><div className="max-w-5xl mx-auto">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }} transition={{ duration: 0.5 }}
