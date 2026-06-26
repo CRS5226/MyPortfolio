@@ -2,7 +2,7 @@
 
 import { motion, useMotionValue, useSpring } from "framer-motion";
 import { useEffect, useState, useRef } from "react";
-import { ArrowDown, Mail, BookOpen } from "lucide-react";
+import { Mail, BookOpen } from "lucide-react";
 import { personalInfo } from "@/lib/data";
 import Image from "next/image";
 
@@ -172,11 +172,6 @@ export default function Hero() {
               ))}
             </motion.div>
 
-            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 2 }}>
-              <a href="#about" className="text-slate-400 hover:text-primary transition-colors animate-bounce" aria-label="Scroll">
-                <ArrowDown size={18} />
-              </a>
-            </motion.div>
           </div>
 
           {/* Right column: profile photo */}
