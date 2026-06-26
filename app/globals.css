@@ -78,3 +78,14 @@ body::before {
 @layer utilities {
   .text-balance { text-wrap: balance; }
 }
+
+/* Light mode base */
+html:not(.dark) body {
+  background-color: #f8fafc;
+  color: #0f172a;
+}
+
+html:not(.dark) .grid-bg {
+  background-image: linear-gradient(rgba(0,0,0,0.05) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(0,0,0,0.05) 1px, transparent 1px);
+}

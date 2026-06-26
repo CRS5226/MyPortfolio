@@ -24,15 +24,15 @@ const socialLinks = [
 
 export default function Contact() {
   return (
-    <section id="contact" className="py-28 px-6 relative" style={{ background: "radial-gradient(ellipse at 50% 70%, rgba(244,63,94,0.1) 0%, transparent 65%), #140a0f" }}>
+    <section id="contact" className="py-28 px-6 relative">
       <SectionReveal><div className="max-w-5xl mx-auto">
         <motion.div variants={fadeUp} initial="hidden" whileInView="visible"
           viewport={{ once: true }} transition={{ duration: 0.5 }}
           className="text-center mb-16 relative">
-          <span className="hidden md:block absolute -top-6 right-0 text-[160px] font-bold opacity-[0.035] blur-sm select-none pointer-events-none text-slate-100 leading-none">07</span>
+          <span className="hidden md:block absolute -top-6 right-0 text-[160px] font-bold opacity-[0.035] blur-sm select-none pointer-events-none text-slate-900 dark:text-slate-100 leading-none">07</span>
           <p className="text-primary text-xs font-semibold uppercase tracking-[0.2em] mb-3">Contact</p>
-          <h2 className="text-4xl md:text-5xl font-bold text-slate-100"><TypewriterText text="Get In Touch" /></h2>
-          <p className="text-slate-400 mt-4 max-w-lg mx-auto text-base leading-relaxed">
+          <h2 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-slate-100"><TypewriterText text="Get In Touch" /></h2>
+          <p className="text-slate-700 dark:text-slate-400 mt-4 max-w-lg mx-auto text-base leading-relaxed">
             Open to new opportunities, research collaborations, and interesting projects.
           </p>
         </motion.div>
@@ -40,14 +40,14 @@ export default function Contact() {
         <div className="grid md:grid-cols-2 gap-10">
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible"
             viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.1 }} className="space-y-4">
-            <h3 className="text-xs font-semibold text-slate-500 uppercase tracking-[0.15em] mb-5">Find me on</h3>
+            <h3 className="text-xs font-semibold text-slate-500 dark:text-slate-500 uppercase tracking-[0.15em] mb-5">Find me on</h3>
             {socialLinks.map(({ label, href, Icon, display }) => (
               <a key={label} href={href} target={label !== "Email" ? "_blank" : undefined} rel="noopener noreferrer"
-                className="flex items-center gap-4 p-4 rounded-xl border border-slate-800 bg-slate-900/60 hover:border-cyan-800/50 hover:text-primary transition-colors group">
+                className="flex items-center gap-4 p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/70 dark:bg-slate-900/60 hover:border-cyan-800/50 hover:text-primary transition-colors group">
                 <div className="w-9 h-9 rounded-lg bg-cyan-950/50 flex items-center justify-center flex-shrink-0 text-primary"><Icon /></div>
                 <div>
-                  <p className="text-xs text-slate-500">{label}</p>
-                  <p className="text-sm text-slate-300 group-hover:text-primary transition-colors">{display}</p>
+                  <p className="text-xs text-slate-500 dark:text-slate-500">{label}</p>
+                  <p className="text-sm text-slate-700 dark:text-slate-300 group-hover:text-primary transition-colors">{display}</p>
                 </div>
               </a>
             ))}
@@ -55,22 +55,22 @@ export default function Contact() {
 
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible"
             viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.2 }}>
-            <h3 className="text-xs font-semibold text-slate-500 uppercase tracking-[0.15em] mb-5">Send a message</h3>
+            <h3 className="text-xs font-semibold text-slate-500 dark:text-slate-500 uppercase tracking-[0.15em] mb-5">Send a message</h3>
             <form action={`mailto:${personalInfo.email}`} method="POST" encType="text/plain" className="space-y-4">
               <div>
-                <label htmlFor="name" className="block text-xs font-medium text-slate-500 mb-1.5">Your Name</label>
+                <label htmlFor="name" className="block text-xs font-medium text-slate-500 dark:text-slate-500 mb-1.5">Your Name</label>
                 <input id="name" name="name" type="text" required placeholder="John Doe"
-                  className="w-full px-4 py-2.5 rounded-lg border border-slate-800 bg-slate-900/80 text-slate-200 text-sm placeholder-slate-600 focus:outline-none focus:border-primary/60 transition-colors" />
+                  className="w-full px-4 py-2.5 rounded-lg border border-slate-200 dark:border-slate-800 bg-white/90 dark:bg-slate-900/80 text-slate-800 dark:text-slate-200 text-sm placeholder-slate-400 dark:placeholder-slate-600 focus:outline-none focus:border-primary/60 transition-colors" />
               </div>
               <div>
-                <label htmlFor="email" className="block text-xs font-medium text-slate-500 mb-1.5">Your Email</label>
+                <label htmlFor="email" className="block text-xs font-medium text-slate-500 dark:text-slate-500 mb-1.5">Your Email</label>
                 <input id="email" name="email" type="email" required placeholder="john@example.com"
-                  className="w-full px-4 py-2.5 rounded-lg border border-slate-800 bg-slate-900/80 text-slate-200 text-sm placeholder-slate-600 focus:outline-none focus:border-primary/60 transition-colors" />
+                  className="w-full px-4 py-2.5 rounded-lg border border-slate-200 dark:border-slate-800 bg-white/90 dark:bg-slate-900/80 text-slate-800 dark:text-slate-200 text-sm placeholder-slate-400 dark:placeholder-slate-600 focus:outline-none focus:border-primary/60 transition-colors" />
               </div>
               <div>
-                <label htmlFor="message" className="block text-xs font-medium text-slate-500 mb-1.5">Message</label>
+                <label htmlFor="message" className="block text-xs font-medium text-slate-500 dark:text-slate-500 mb-1.5">Message</label>
                 <textarea id="message" name="message" rows={5} required placeholder="Hi Chitraksh, I'd like to..."
-                  className="w-full px-4 py-2.5 rounded-lg border border-slate-800 bg-slate-900/80 text-slate-200 text-sm placeholder-slate-600 focus:outline-none focus:border-primary/60 transition-colors resize-none" />
+                  className="w-full px-4 py-2.5 rounded-lg border border-slate-200 dark:border-slate-800 bg-white/90 dark:bg-slate-900/80 text-slate-800 dark:text-slate-200 text-sm placeholder-slate-400 dark:placeholder-slate-600 focus:outline-none focus:border-primary/60 transition-colors resize-none" />
               </div>
               <button type="submit"
                 className="w-full flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-primary text-slate-950 font-semibold text-sm hover:bg-primary-dark transition-colors">
@@ -82,7 +82,7 @@ export default function Contact() {
 
         <motion.p variants={fadeUp} initial="hidden" whileInView="visible"
           viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.3 }}
-          className="text-center text-xs text-slate-600 mt-20">
+          className="text-center text-xs text-slate-400 dark:text-slate-600 mt-20">
           © {new Date().getFullYear()} Chitraksh Singh. Built with Next.js & Tailwind CSS.
         </motion.p>
       </div></SectionReveal>

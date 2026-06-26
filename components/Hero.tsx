@@ -103,7 +103,7 @@ export default function Hero() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 1.1 }}
-              className="text-lg md:text-2xl text-slate-400 mb-5 h-8"
+              className="text-lg md:text-2xl text-slate-700 dark:text-slate-400 mb-5 h-8"
             >
               <TypewriterTitle />
             </motion.div>
@@ -112,7 +112,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 1.3 }}
-              className="text-slate-500 text-sm md:text-base max-w-xl mb-10 leading-relaxed"
+              className="text-slate-600 dark:text-slate-500 text-sm md:text-base max-w-xl mb-10 leading-relaxed"
             >
               {personalInfo.tagline}
             </motion.p>
@@ -132,7 +132,7 @@ export default function Hero() {
               </MagneticButton>
               <MagneticButton
                 href="#contact"
-                className="px-8 py-3 rounded-lg border border-slate-700 text-slate-400 font-semibold text-sm hover:border-primary hover:text-primary transition-all duration-300 block"
+                className="px-8 py-3 rounded-lg border border-slate-300 dark:border-slate-700 text-slate-500 dark:text-slate-400 font-semibold text-sm hover:border-primary hover:text-primary transition-all duration-300 block"
               >
                 Contact Me
               </MagneticButton>
@@ -152,7 +152,7 @@ export default function Hero() {
                 { href: personalInfo.scholar, label: "Scholar", svg: <BookOpen size={18} /> },
               ].map(({ href, label, svg }) => (
                 <a key={label} href={href} target={label !== "Email" ? "_blank" : undefined} rel="noopener noreferrer"
-                  aria-label={label} className="text-slate-400 hover:text-primary transition-colors duration-200">
+                  aria-label={label} className="text-slate-500 dark:text-slate-400 hover:text-primary transition-colors duration-200">
                   {svg}
                 </a>
               ))}

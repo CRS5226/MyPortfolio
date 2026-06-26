@@ -18,14 +18,14 @@ const item = {
 
 export default function Experience() {
   return (
-    <section id="experience" className="py-28 px-6 bg-slate-900/20 relative overflow-hidden" style={{ background: "radial-gradient(ellipse at 70% 40%, rgba(139,92,246,0.12) 0%, transparent 65%), #100d20" }}>
+    <section id="experience" className="py-28 px-6 bg-slate-100/20 dark:bg-slate-900/20 relative overflow-hidden">
       <SectionReveal><div className="max-w-5xl mx-auto">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }} transition={{ duration: 0.5 }}
           className="text-center mb-16 relative">
-          <span className="hidden md:block absolute -top-6 right-0 text-[160px] font-bold opacity-[0.035] blur-sm select-none pointer-events-none text-slate-100 leading-none">02</span>
+          <span className="hidden md:block absolute -top-6 right-0 text-[160px] font-bold opacity-[0.035] blur-sm select-none pointer-events-none text-slate-900 dark:text-slate-100 leading-none">02</span>
           <p className="text-primary text-xs font-semibold uppercase tracking-[0.2em] mb-3">Experience</p>
-          <h2 className="text-4xl md:text-5xl font-bold text-slate-100"><TypewriterText text="Where I've Worked" /></h2>
+          <h2 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-slate-100"><TypewriterText text="Where I've Worked" /></h2>
         </motion.div>
 
         <div className="relative">
@@ -44,7 +44,7 @@ export default function Experience() {
                 <motion.div initial={{ scale: 0 }} whileInView={{ scale: 1 }}
                   viewport={{ once: true }} transition={{ duration: 0.3, delay: i * 0.1 + 0.2 }}
                   className="absolute left-[14px] top-5 w-3 h-3 rounded-full bg-primary border-2 border-slate-950 shadow-[0_0_8px_rgba(6,182,212,0.6)]" />
-                <div className="group p-6 rounded-2xl border border-slate-800/80 bg-slate-900/60 hover:border-cyan-800/50 hover:bg-slate-900/80 transition-all duration-300">
+                <div className="group p-6 rounded-2xl border border-slate-200/80 dark:border-slate-800/80 bg-white/70 dark:bg-slate-900/60 hover:border-cyan-800/50 hover:bg-white/90 dark:hover:bg-slate-900/80 transition-all duration-300">
                   <div className="flex flex-wrap items-start justify-between gap-3 mb-5">
                     <div className="flex items-center gap-4">
                       {exp.logo && (
@@ -59,13 +59,13 @@ export default function Experience() {
                         </div>
                       )}
                       <div>
-                        <h3 className="text-lg font-bold text-slate-100">{exp.role}</h3>
+                        <h3 className="text-lg font-bold text-slate-900 dark:text-slate-100">{exp.role}</h3>
                         <span className="inline-block mt-1 px-2.5 py-0.5 rounded-md text-xs font-semibold bg-cyan-950/60 text-primary border border-cyan-900/40">{exp.company}</span>
                       </div>
                     </div>
                     <div className="flex flex-col items-end gap-1.5">
-                      <span className="inline-flex items-center gap-1.5 text-xs text-slate-500"><Calendar size={11} className="text-primary/60" />{exp.duration}</span>
-                      <span className="inline-flex items-center gap-1.5 text-xs text-slate-500"><MapPin size={11} className="text-primary/60" />{exp.location}</span>
+                      <span className="inline-flex items-center gap-1.5 text-xs text-slate-500 dark:text-slate-500"><Calendar size={11} className="text-primary/60" />{exp.duration}</span>
+                      <span className="inline-flex items-center gap-1.5 text-xs text-slate-500 dark:text-slate-500"><MapPin size={11} className="text-primary/60" />{exp.location}</span>
                     </div>
                   </div>
                   <ul className="space-y-3">
@@ -73,7 +73,7 @@ export default function Experience() {
                       <motion.li key={j}
                         initial={{ opacity: 0, x: -10 }} whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.1 + j * 0.05 + 0.3 }}
-                        className="flex gap-3 text-[13px] text-slate-400 leading-relaxed">
+                        className="flex gap-3 text-[13px] text-slate-700 dark:text-slate-400 leading-relaxed">
                         <span className="mt-2 w-1 h-1 rounded-full bg-primary/70 flex-shrink-0" />
                         <span>
                           {ach.text}

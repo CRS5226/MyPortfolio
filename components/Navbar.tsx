@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { navLinks, personalInfo } from "@/lib/data";
+import ThemeToggle from "./ThemeToggle";
 
 export default function Navbar() {
   const [active, setActive] = useState("");
@@ -37,11 +38,11 @@ export default function Navbar() {
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5, delay: 0.2 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "bg-slate-950/80 backdrop-blur-xl border-b border-slate-800/60" : "bg-transparent"
+        scrolled ? "bg-white/95 dark:bg-slate-950/80 backdrop-blur-xl border-b border-slate-200/60 dark:border-slate-800/60" : "bg-transparent"
       }`}
     >
       <nav className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-        <a href="#hero" className="text-slate-100 font-bold text-lg tracking-tight hover:text-primary transition-colors">
+        <a href="#hero" className="text-slate-900 dark:text-slate-100 font-bold text-lg tracking-tight hover:text-primary transition-colors">
           {personalInfo.name.split(" ")[0]}
           <span className="text-primary">.</span>
         </a>
@@ -55,7 +56,7 @@ export default function Navbar() {
                 <a
                   href={link.href}
                   className={`relative px-3 py-1.5 text-sm font-medium transition-colors rounded-md ${
-                    active === id ? "text-primary" : "text-slate-500 hover:text-slate-200"
+                    active === id ? "text-primary" : "text-slate-500 hover:text-slate-800 dark:hover:text-slate-200"
                   }`}
                 >
                   {active === id && (
@@ -72,14 +73,22 @@ export default function Navbar() {
           })}
         </ul>
 
+        {/* Desktop theme toggle */}
+        <div className="hidden md:flex items-center gap-2">
+          <ThemeToggle />
+        </div>
+
         {/* Mobile */}
+        <div className="md:hidden flex items-center gap-2">
+          <ThemeToggle />
         <button
-          className="md:hidden text-slate-500 hover:text-slate-100 transition-colors"
+          className="text-slate-500 hover:text-slate-800 dark:hover:text-slate-100 transition-colors"
           onClick={() => setMenuOpen((o) => !o)}
           aria-label="Toggle menu"
         >
           {menuOpen ? <X size={20} /> : <Menu size={20} />}
         </button>
+        </div>
       </nav>
 
       <AnimatePresence>
@@ -89,7 +98,7 @@ export default function Navbar() {
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.25 }}
-            className="md:hidden overflow-hidden bg-slate-950/95 backdrop-blur-xl border-b border-slate-800"
+            className="md:hidden overflow-hidden bg-white/95 dark:bg-slate-950/95 backdrop-blur-xl border-b border-slate-200 dark:border-slate-800"
           >
             <ul className="flex flex-col py-4 px-6 gap-1">
               {navLinks.map((link) => {
@@ -100,7 +109,7 @@ export default function Navbar() {
                       href={link.href}
                       onClick={() => setMenuOpen(false)}
                       className={`block px-3 py-2 rounded-md text-sm font-medium transition-colors ${
-                        active === id ? "text-primary bg-cyan-950/40" : "text-slate-500 hover:text-slate-200"
+                        active === id ? "text-primary bg-cyan-950/40" : "text-slate-500 hover:text-slate-800 dark:hover:text-slate-200"
                       }`}
                     >
                       {link.label}

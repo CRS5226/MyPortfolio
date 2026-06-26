@@ -46,21 +46,21 @@ const item = {
 
 export default function Skills() {
   return (
-    <section id="skills" className="py-28 px-6 overflow-hidden" style={{ background: "radial-gradient(ellipse at 50% 40%, rgba(6,182,212,0.1) 0%, transparent 65%), #091a1a" }}>
+    <section id="skills" className="py-28 px-6 overflow-hidden">
       <SectionReveal><div className="max-w-5xl mx-auto">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }} transition={{ duration: 0.5 }}
           className="text-center mb-10 relative">
-          <span className="hidden md:block absolute -top-6 right-0 text-[160px] font-bold opacity-[0.035] blur-sm select-none pointer-events-none text-slate-100 leading-none">03</span>
+          <span className="hidden md:block absolute -top-6 right-0 text-[160px] font-bold opacity-[0.035] blur-sm select-none pointer-events-none text-slate-900 dark:text-slate-100 leading-none">03</span>
           <p className="text-primary text-xs font-semibold uppercase tracking-[0.2em] mb-3">Skills</p>
-          <h2 className="text-4xl md:text-5xl font-bold text-slate-100">Tech Stack</h2>
+          <h2 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-slate-100">Tech Stack</h2>
         </motion.div>
 
         {/* Infinite marquee ticker */}
-        <div className="relative overflow-hidden mb-12 py-3 before:absolute before:left-0 before:top-0 before:bottom-0 before:w-16 before:bg-gradient-to-r before:from-slate-950 before:z-10 after:absolute after:right-0 after:top-0 after:bottom-0 after:w-16 after:bg-gradient-to-l after:from-slate-950 after:z-10">
+        <div className="relative overflow-hidden mb-12 py-3 before:absolute before:left-0 before:top-0 before:bottom-0 before:w-16 before:bg-gradient-to-r before:from-slate-50 dark:before:from-slate-950 before:z-10 after:absolute after:right-0 after:top-0 after:bottom-0 after:w-16 after:bg-gradient-to-l after:from-slate-50 dark:after:from-slate-950 after:z-10">
           <div className="marquee-track flex gap-3 w-max">
             {[...allTechs, ...allTechs].map((tech, i) => (
-              <span key={i} className="px-3 py-1 rounded-full text-xs font-medium bg-slate-800/60 text-slate-400 border border-slate-700/50 whitespace-nowrap flex-shrink-0">
+              <span key={i} className="px-3 py-1 rounded-full text-xs font-medium bg-slate-100/80 dark:bg-slate-800/60 text-slate-500 dark:text-slate-400 border border-slate-300/60 dark:border-slate-700/50 whitespace-nowrap flex-shrink-0">
                 {tech}
               </span>
             ))}
@@ -81,12 +81,12 @@ export default function Skills() {
               variants={item}
               whileHover={{ scale: 1.1, y: -3 }}
               style={{ "--glow": color } as React.CSSProperties}
-              className="flex flex-col items-center gap-2 p-4 rounded-xl border border-slate-800/60 bg-slate-900/40 hover:border-cyan-800/50 hover:bg-slate-900/70 transition-all duration-200 cursor-default group"
+              className="flex flex-col items-center gap-2 p-4 rounded-xl border border-slate-200/60 dark:border-slate-800/60 bg-white/50 dark:bg-slate-900/40 hover:border-cyan-800/50 hover:bg-white/80 dark:hover:bg-slate-900/70 transition-all duration-200 cursor-default group"
             >
               <span className="transition-all duration-300 group-hover:[filter:drop-shadow(0_0_8px_var(--glow))]">
                 <Icon size={36} style={{ color }} />
               </span>
-              <span className="text-xs text-slate-400 text-center leading-tight">{name}</span>
+              <span className="text-xs text-slate-500 dark:text-slate-400 text-center leading-tight">{name}</span>
             </motion.div>
           ))}
         </motion.div>
@@ -98,7 +98,7 @@ export default function Skills() {
           className="mt-16">
           <div className="flex items-center gap-3 mb-8">
             <span className="w-2 h-2 rounded-full bg-amber-400" />
-            <h3 className="text-xs font-semibold text-slate-500 uppercase tracking-[0.15em]">Certifications</h3>
+            <h3 className="text-xs font-semibold text-slate-500 dark:text-slate-500 uppercase tracking-[0.15em]">Certifications</h3>
           </div>
           <motion.div
             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
@@ -114,14 +114,14 @@ export default function Skills() {
                 target="_blank"
                 rel="noopener noreferrer"
                 variants={item}
-                className="group flex items-start gap-4 p-5 rounded-2xl border border-slate-800 bg-slate-900/50 hover:border-cyan-800/50 hover:bg-slate-900/80 transition-all duration-300 cursor-pointer"
+                className="group flex items-start gap-4 p-5 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white/60 dark:bg-slate-900/50 hover:border-cyan-800/50 hover:bg-white/90 dark:hover:bg-slate-900/80 transition-all duration-300 cursor-pointer"
               >
                 <div className="w-10 h-10 rounded-lg bg-amber-950/50 flex items-center justify-center flex-shrink-0 group-hover:bg-amber-950/80 transition-colors">
                   <Award size={18} className="text-amber-400" />
                 </div>
                 <div className="min-w-0">
-                  <p className="text-sm font-semibold text-slate-200 leading-snug mb-0.5">{cert.name}</p>
-                  <p className="text-xs text-slate-500 mb-2">{cert.issuer}</p>
+                  <p className="text-sm font-semibold text-slate-800 dark:text-slate-200 leading-snug mb-0.5">{cert.name}</p>
+                  <p className="text-xs text-slate-500 dark:text-slate-500 mb-2">{cert.issuer}</p>
                   <span className="text-xs text-primary font-medium group-hover:text-cyan-300 transition-colors">
                     View Certificate →
                   </span>
