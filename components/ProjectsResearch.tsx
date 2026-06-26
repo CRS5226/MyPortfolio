@@ -110,7 +110,8 @@ export default function ProjectsResearch() {
                             <FileText size={13} className="text-cyan-600 group-hover/pub:text-primary mt-0.5 flex-shrink-0 transition-colors" />
                             <div className="min-w-0">
                               <p className="text-xs text-cyan-700 dark:text-cyan-300/80 group-hover/pub:text-cyan-600 dark:group-hover/pub:text-cyan-200 transition-colors leading-snug">{pub.title}</p>
-                              <p className="text-[10px] text-slate-500 mt-0.5">{pub.venue} · {pub.year}</p>
+                              <p className="text-[10px] text-slate-500 mt-0.5">{pub.authors}</p>
+                              <p className="text-[10px] text-slate-400 dark:text-slate-600 mt-0.5">{pub.venue} · {pub.year}</p>
                             </div>
                             <ExternalLink size={11} className="text-cyan-600 group-hover/pub:text-primary flex-shrink-0 mt-0.5 transition-colors" />
                           </a>
@@ -127,7 +128,8 @@ export default function ProjectsResearch() {
                           <FileText size={13} className="text-cyan-600 group-hover/pub:text-primary mt-0.5 flex-shrink-0 transition-colors" />
                           <div className="min-w-0">
                             <p className="text-xs text-cyan-700 dark:text-cyan-300/80 group-hover/pub:text-cyan-600 dark:group-hover/pub:text-cyan-200 transition-colors leading-snug">Towards U-Net Based Semantic Segmentation for Satellite Images</p>
-                            <p className="text-[10px] text-slate-500 mt-0.5">{satelliteVenue}</p>
+                            <p className="text-[10px] text-slate-500 mt-0.5">Chitraksh Singh, Deepak Kumar Dewangan</p>
+                            <p className="text-[10px] text-slate-400 dark:text-slate-600 mt-0.5">{satelliteVenue}</p>
                           </div>
                           <ExternalLink size={11} className="text-cyan-600 group-hover/pub:text-primary flex-shrink-0 mt-0.5 transition-colors" />
                         </a>
@@ -149,7 +151,7 @@ export default function ProjectsResearch() {
             </div>
 
             <motion.div
-              className="grid gap-6"
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
               variants={container}
               initial="hidden"
               whileInView="visible"
