@@ -183,12 +183,13 @@ export const publications: Publication[] = [
     venue: "arXiv preprint arXiv:2605.30364",
     year: "2026",
     href: "https://arxiv.org/abs/2605.30364",
+    image: "/images/hamiltonian.png",
     description:
       "Proposes the Hamiltonian Transformer, a physics-informed attention architecture that enforces norm-preserving value dynamics within each attention head using a learned skew-symmetric generator and a Störmer-Verlet leapfrog integration step. Evaluated on the WiSig dataset, it achieves 99.12% accuracy under same-day conditions and 61.64% at 150 transmitters, consistently outperforming CNN and Transformer baselines across all scale points.",
   },
   {
     title: "Towards U-Net Based Semantic Segmentation for Satellite Images",
-    authors: "Chitraksh Singh, Deepak Kumar Dewangan",
+    authors: "C. Singh, D.K. Dewangan",
     venue: "IEEE International Conference on Intelligent Signal Processing",
     year: "2024",
     href: "https://ieeexplore.ieee.org/abstract/document/10896139",
@@ -199,6 +200,7 @@ export const publications: Publication[] = [
     venue: "International Conference on Entrepreneurship, Innovation, and Leadership",
     year: "2024",
     href: "https://link.springer.com/chapter/10.1007/978-981-96-3936-6_16",
+    image: "/images/ddos_corr.png",
     description:
       "Presents a cyber forensics approach towards mitigating DDoS attacks using machine learning methods including Random Forest, SVM, and LightGBM, evaluated on CIC-DDoS2019 and DDoS-SDN datasets. LightGBM outperformed all other algorithms, achieving 98.88% accuracy on CICDDoS2019 and 99.99% on SDN data through effective handling of high-dimensional data and ensemble learning.",
   },

@@ -128,7 +128,7 @@ export default function ProjectsResearch() {
                           <FileText size={13} className="text-cyan-600 group-hover/pub:text-primary mt-0.5 flex-shrink-0 transition-colors" />
                           <div className="min-w-0">
                             <p className="text-xs text-cyan-700 dark:text-cyan-300/80 group-hover/pub:text-cyan-600 dark:group-hover/pub:text-cyan-200 transition-colors leading-snug">Towards U-Net Based Semantic Segmentation for Satellite Images</p>
-                            <p className="text-[10px] text-slate-500 mt-0.5">Chitraksh Singh, Deepak Kumar Dewangan</p>
+                            <p className="text-[10px] text-slate-500 mt-0.5">C. Singh, D.K. Dewangan</p>
                             <p className="text-[10px] text-slate-400 dark:text-slate-600 mt-0.5">{satelliteVenue}</p>
                           </div>
                           <ExternalLink size={11} className="text-cyan-600 group-hover/pub:text-primary flex-shrink-0 mt-0.5 transition-colors" />
