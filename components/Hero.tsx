@@ -166,14 +166,14 @@ export default function Hero() {
                 { href: personalInfo.scholar, label: "Scholar", svg: <BookOpen size={18} /> },
               ].map(({ href, label, svg }) => (
                 <a key={label} href={href} target={label !== "Email" ? "_blank" : undefined} rel="noopener noreferrer"
-                  aria-label={label} className="text-slate-600 hover:text-primary transition-colors duration-200">
+                  aria-label={label} className="text-slate-400 hover:text-primary transition-colors duration-200">
                   {svg}
                 </a>
               ))}
             </motion.div>
 
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 2 }}>
-              <a href="#about" className="text-slate-700 hover:text-primary transition-colors animate-bounce" aria-label="Scroll">
+              <a href="#about" className="text-slate-400 hover:text-primary transition-colors animate-bounce" aria-label="Scroll">
                 <ArrowDown size={18} />
               </a>
             </motion.div>
